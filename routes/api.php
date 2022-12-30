@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
-    Route::post('/newProduct', [ProductController::class, "store" ]); 
-    Route::put('/update/{id}', [ProductController::class, "update" ]); 
-    Route::delete('/delete/{id}', [ProductController::class, "destroy" ]); 
+    Route::post('/subjects', [SubjectController::class, "store" ]); 
+    Route::put('/subjects/{id}', [SubjectController::class, "update" ]); 
+    Route::delete('/subjects/{id}', [SubjectController::class, "destroy" ]); 
 });
 
-Route::post('/register', [AuthController::class, "signUp" ]); 
-Route::post('/login', [AuthController::class, "signIn" ]); 
-Route::get('/prod', [ProductController::class, "index" ]); 
-Route::get('/show/{id}', [ProductController::class, "show" ]); 
+Route::post('/register', [AuthController::class, "register" ]); 
+Route::post('/login', [AuthController::class, "login" ]); 
+Route::get('/subject', [SubjectController::class, "index" ]); 
+Route::get('/subjects/{id}', [SubjectController::class, "show" ]); 
 

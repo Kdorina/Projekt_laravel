@@ -9,7 +9,7 @@ use App\Http\Controllers\BaseController as BaseController;
 
 class AuthController extends BaseController
 {
-    public function signIn(Request $request)
+    public function login(Request $request)
     {
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){;
 
@@ -21,11 +21,11 @@ class AuthController extends BaseController
     }
     else 
     {
-      return $this->sendError("Unauthorizd.".["error" => "Hibás adatok"]);
+      return $this->sendError("Unauthorizd.".["error" => "Hibás adatok"], 401);
     }
     }
 
-    public function signUp(Request $request)
+    public function register(Request $request)
     {
         $validator = Validator::make($request->all(), 
         [
