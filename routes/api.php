@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SubjectController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +32,6 @@ Route::post('/login', [AuthController::class, "login" ]);
 Route::get('/subject', [SubjectController::class, "index" ]); 
 Route::get('/subjects/{id}', [SubjectController::class, "show" ]); 
 
+// ADMIN API ROUTE
+Route::get('/user', [AuthController::class, "getUsers" ]); 
+Route::get('/users/{id}', [AuthController::class, "showUsers" ]); 

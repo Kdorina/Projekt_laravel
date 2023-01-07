@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\User;
+use DB;
+use App\Http\Resources\User as UserResource;
 use App\Http\Controllers\BaseController as BaseController;
 
 class AuthController extends BaseController
@@ -31,6 +33,8 @@ class AuthController extends BaseController
         [
             "name" => "required",
             "email" => "required",
+            'date_of_birth' => 'required',
+            'gender' => 'required',
             "password" => "required",
             "confirm_password" => "required|same:password"
         ]);
@@ -46,6 +50,23 @@ class AuthController extends BaseController
         $success ["name"] = $user->name;
         // print_r("Sikeres regisztráció");
         return $this->sendResponse($success, "Sikeres regisztráció.");
+    }
+
+///ADMIN 
+
+    public function getUsers(){
+        $user = User::all();
+    
+        return $this->sendResponse( UserResource::collection($user), "OK");
+
+    }
+    public function showUsers($id){
+        $user = User::find($id);
+    
+        if( is_null($user)){
+            return $this->sendError("Post nem létezik");
+        }
+        return $this->sendResponse( new UserResource ($user), "Post betöltve" );
     }
 }
 
