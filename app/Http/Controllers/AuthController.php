@@ -72,23 +72,27 @@ class AuthController extends BaseController
         return $this->sendResponse( new UserResource ($user), "Post betöltve" );
     }
 
-    public function userAge(){
-        // $age = User::find(1);
-        // $birthday = $age->date_of_birth;
-        // $age = Carbon::parse($birthday)
-        // ->diff(Carbon::now())
-        // ->format('%y years, %m months and %d days');
+    public function countUsers(){
+        return User::all();
+        // $sum = User::get();
+        // $number = $sum->count('id');
 
-        // print_r($age);
+        // echo "<pre>";
+        // print_r($number);
+    }
+
+    public function userAge(){
 
         $ages = User::get();
         foreach ($ages as $age) {
             $number = $age-> date_of_birth;
             $user_age = Carbon::parse($number)->age;
+
+            // print_r($user_age);
             // ->diff(Carbon::now());
             // ->format();
-            echo "<pre>";
-            print_r($user_age);
+            // echo "<pre>";
+            // print_r($user_age);
         }
     
     }
