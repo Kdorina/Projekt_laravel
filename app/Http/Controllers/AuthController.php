@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\User;
 use DB;
+use Carbon\Carbon;
 use App\Http\Resources\User as UserResource;
 use App\Http\Controllers\BaseController as BaseController;
 
@@ -52,10 +53,11 @@ class AuthController extends BaseController
         return $this->sendResponse($success, "Sikeres regisztráció.");
     }
 
-///ADMIN 
+///ADMIN oldalhoz lekérdezés
 
     public function getUsers(){
-        $user = DB::table("users")->select("id", "name", "email")->get();
+        return User::all();
+        // $user = DB::table("users")->select("id", "name", "email")->get();
         // echo "<pre>";
         // print_r($user);
         // return $this->sendResponse( UserResource::collection($user), "OK");
@@ -68,6 +70,27 @@ class AuthController extends BaseController
             return $this->sendError("Post nem létezik");
         }
         return $this->sendResponse( new UserResource ($user), "Post betöltve" );
+    }
+
+    public function userAge(){
+        // $age = User::find(1);
+        // $birthday = $age->date_of_birth;
+        // $age = Carbon::parse($birthday)
+        // ->diff(Carbon::now())
+        // ->format('%y years, %m months and %d days');
+
+        // print_r($age);
+
+        $ages = User::get();
+        foreach ($ages as $age) {
+            $number = $age-> date_of_birth;
+            $user_age = Carbon::parse($number)->age;
+            // ->diff(Carbon::now());
+            // ->format();
+            echo "<pre>";
+            print_r($user_age);
+        }
+    
     }
 }
 

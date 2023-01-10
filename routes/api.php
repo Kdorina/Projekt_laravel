@@ -38,3 +38,4 @@ Route::post('upload', [FileController::class, 'store']);
 // ADMIN API ROUTE
 Route::get('/user', [AuthController::class, "getUsers" ]); 
 Route::get('/users', [AuthController::class, "showUsers" ]); 
+Route::get('/age', [AuthController::class, "userAge" ]); 

@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-
+use Carbon\Carbon;
 class User extends JsonResource
 {
     /**
@@ -26,4 +26,5 @@ class User extends JsonResource
          
         ];
     }
+
 }
