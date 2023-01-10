@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\FileController;
 
 
 /*
@@ -31,6 +32,8 @@ Route::post('/register', [AuthController::class, "register" ]);
 Route::post('/login', [AuthController::class, "login" ]); 
 Route::get('/subject', [SubjectController::class, "index" ]); 
 Route::get('/subjects/{id}', [SubjectController::class, "show" ]); 
+Route::get('upload',[FileController::class, 'create']);
+Route::post('upload', [FileController::class, 'store']);
 
 // ADMIN API ROUTE
 Route::get('/user', [AuthController::class, "getUsers" ]); 
