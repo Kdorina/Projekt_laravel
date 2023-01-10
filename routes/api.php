@@ -34,4 +34,4 @@ Route::get('/subjects/{id}', [SubjectController::class, "show" ]);
 
 // ADMIN API ROUTE
 Route::get('/user', [AuthController::class, "getUsers" ]); 
-Route::get('/users/{id}', [AuthController::class, "showUsers" ]); 
+Route::get('/users', [AuthController::class, "showUsers" ]); 

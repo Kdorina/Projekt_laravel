@@ -55,9 +55,10 @@ class AuthController extends BaseController
 ///ADMIN 
 
     public function getUsers(){
-        $user = User::all();
-    
-        return $this->sendResponse( UserResource::collection($user), "OK");
+        $user = DB::table("users")->select("id", "name", "email")->get();
+        // echo "<pre>";
+        // print_r($user);
+        // return $this->sendResponse( UserResource::collection($user), "OK");
 
     }
     public function showUsers($id){
