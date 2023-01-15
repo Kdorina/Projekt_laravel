@@ -73,7 +73,8 @@ class AuthController extends BaseController
     }
 
     public function countUsers(){
-        return User::all();
+        
+        $age = User::all();
         // $sum = User::get();
         // $number = $sum->count('id');
 
@@ -82,19 +83,33 @@ class AuthController extends BaseController
     }
 
     public function userAge(){
-
-        $ages = User::get();
-        foreach ($ages as $age) {
-            $number = $age-> date_of_birth;
-            $user_age = Carbon::parse($number)->age;
-
-            // print_r($user_age);
-            // ->diff(Carbon::now());
-            // ->format();
-            // echo "<pre>";
-            // print_r($user_age);
-        }
+        
+        $bd= DB::table('users')->select('date_of_birth')->get();
+        // $age = \Carbon\Carbon::parse($bd)->age;
     
+    }
+
+    public function getGenders(){
+
+        // $user = DB::table('users')->where("gender", "nő")->get();
+        // $women = $user->count('id');
+        // echo "<pre>";
+        // print_r($women);
+        
+        // $user = DB::table('users')->where("gender", "férfi")->get();
+        // $man = $user->count('id');
+        
+        //   echo "<pre>";
+        //     print_r($man);
+
+        // $user = DB::table('users')->where("gender", "egyéb")->get();
+        // $else = $user->count('id');
+
+        // echo "<pre>";
+        // print_r($else);
+        
+        // echo "<pre>";
+        // print_r($allUser);
     }
 }
 

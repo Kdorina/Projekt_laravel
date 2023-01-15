@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\FileController;
 
@@ -40,3 +41,8 @@ Route::get('/user', [AuthController::class, "getUsers" ]);
 Route::get('/users', [AuthController::class, "showUsers" ]); 
 Route::get('/sum', [AuthController::class, "countUsers" ]); 
 Route::get('/age', [AuthController::class, "userAge" ]); 
+Route::get('/gender', [AuthController::class, "getGenders" ]); 
+
+
+Route::post('/adminReg', [AdminController::class, "adminRegister" ]); 
+Route::post('/adminLog', [AdminController::class, "adminLogin" ]); 
