@@ -3,7 +3,6 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Carbon\Carbon;
 class User extends JsonResource
 {
     /**
@@ -18,6 +17,7 @@ class User extends JsonResource
 
         return [
             "id"=> $this->id,
+            "buildingName"=> $this->buildingName,
             "name"=> $this->name,
             "email"=> $this->email,
             "date_of_birth"=> $this->date_of_birth,

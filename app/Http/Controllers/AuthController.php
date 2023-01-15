@@ -32,6 +32,7 @@ class AuthController extends BaseController
     {
         $validator = Validator::make($request->all(), 
         [
+            "buildingName" => "required",
             "name" => "required",
             "email" => "required",
             'date_of_birth' => 'required',
