@@ -10,22 +10,22 @@ use App\Http\Controllers\BaseController as BaseController;
 
 class AdminController extends BaseController
 {
-   
     public function adminLogin(Request $request)
     {
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){;
+        if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){;
 
-        $authAdmin = Auth::user();
-        $success["token"] = $authAdmin->createToken("MyAuthApp")->plainTextToken;
-        $success["name"] = $authAdmin->name;
+        $authUser = Auth::guard('admin')->user();
+        $success["token"] = $authUser->createToken("MyAuthApp", ['admin'])->plainTextToken;
+        $success["name"] = $authUser->name;
         // print_r("Sikeres bejelentkezés");
         return $this->sendResponse($success, "Sikeres bejelentkezés.");
     }
     else 
     {
-    //   return $this->sendError("Unauthorizd.".["error" => "Hibás adatok"], 401);
+      return $this->sendError("Unauthorizd.".["error" => "Hibás adatok"], 401);
     }
     }
+
     public function adminRegister(Request $request)
     {
         $validator = Validator::make($request->all(), 
