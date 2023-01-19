@@ -73,21 +73,27 @@ class AuthController extends BaseController
         return $this->sendResponse( new UserResource ($user), "Post betöltve" );
     }
 
-    public function countUsers(){
+    public function userAge(Request $request){
         
-        $age = User::all();
-        // $sum = User::get();
-        // $number = $sum->count('id');
+        $age = User::first();
+        return now()->format('Y'); //<= now year
 
-        // echo "<pre>";
-        // print_r($number);
-    }
+        echo $y;
 
-    public function userAge(){
-        
-        $bd= DB::table('users')->select('date_of_birth')->get();
-        // $age = \Carbon\Carbon::parse($bd)->age;
-    
+         $bd=DB::table('users')->select('date_of_birth')->get();
+        $currentYear = date('Y');
+        echo $currentYear;
+
+
+        // $yearStr = strtotime($bd);
+       
+        // if(empty($bd)){
+        //     echo 'helytelen értéket ad vissza';
+        // }else{
+        //     echo 'helyes értéket ad vissza';
+            
+        // };
+       
     }
 
     public function getGenders(){

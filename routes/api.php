@@ -46,3 +46,12 @@ Route::get('/gender', [AuthController::class, "getGenders" ]);
 
 Route::post('/adminReg', [AdminController::class, "adminRegister" ]); 
 Route::post('/adminLog', [AdminController::class, "adminLogin" ]); 
+
+
+
+//FILES 
+Route::get('/allFile', [FileController::class, 'index']);
+Route::get('/showFile', [FileController::class, 'show']);
+Route::post('/addFile', [FileController::class, 'store']);
+Route::put('/updateFile/{id}', [FileController::class, 'update']);
+Route::get('/updateFile', [FileController::class, 'update']);
