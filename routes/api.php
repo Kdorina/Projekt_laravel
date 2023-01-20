@@ -31,21 +31,24 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
 
 Route::post('/register', [AuthController::class, "register" ]); 
 Route::post('/login', [AuthController::class, "login" ]); 
+
 Route::get('/subject', [SubjectController::class, "index" ]); 
 Route::get('/subjects/{id}', [SubjectController::class, "show" ]); 
 Route::get('upload',[FileController::class, 'create']);
 Route::post('upload', [FileController::class, 'store']);
 
+
+
 // ADMIN API ROUTE
+Route::post('/adminReg', [AdminController::class, "adminRegister" ]); 
+Route::post('/adminLog', [AdminController::class, "adminLogin" ]); 
+
 Route::get('/user', [AuthController::class, "getUsers" ]); 
 Route::get('/users', [AuthController::class, "showUsers" ]); 
 Route::get('/sum', [AuthController::class, "countUsers" ]); 
 Route::get('/age', [AuthController::class, "userAge" ]); 
 Route::get('/gender', [AuthController::class, "getGenders" ]); 
-
-
-Route::post('/adminReg', [AdminController::class, "adminRegister" ]); 
-Route::post('/adminLog', [AdminController::class, "adminLogin" ]); 
+Route::get('/allBuilding', [AuthController::class, "allBuilding" ]); 
 
 
 

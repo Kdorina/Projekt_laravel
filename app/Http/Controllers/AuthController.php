@@ -118,5 +118,11 @@ class AuthController extends BaseController
         // echo "<pre>";
         // print_r($allUser);
     }
+
+    public function allBuilding(){
+        
+        $shools = DB::table('users')->select("buildingName")->groupBy("buildingName")->get();
+        return $shools;
+    }
 }
 
