@@ -76,13 +76,12 @@ class AuthController extends BaseController
     public function userAge(Request $request){
         
         $age = User::first();
-        return now()->format('Y'); //<= now year
+        // return now()->format('Y'); //<= now year
 
-        echo $y;
-
-         $bd=DB::table('users')->select('date_of_birth')->get();
-        $currentYear = date('Y');
-        echo $currentYear;
+         $bd = DB::table('users')->select('date_of_birth')->get();
+        // $bd = DB::select('SELECT (366 + DAYOFYEAR(buildingName) - DAYOFYEAR(NOW()))%366 AS Year FROM users ');
+            $currentYear = date('Y');
+        print($bd);
 
 
         // $yearStr = strtotime($bd);
