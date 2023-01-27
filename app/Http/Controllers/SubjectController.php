@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 use Validator;
+use DB;
 use App\Models\Subject;
 
 use Illuminate\Http\Request;
-// use App\Http\Controllers\BaseController;
+use App\Http\Controllers\BaseController as BaseController;
 use App\Http\Resources\Subject as SubjectResource;
 
 class SubjectController extends BaseController
@@ -74,5 +75,26 @@ class SubjectController extends BaseController
 
     
         
+        }
+
+
+        public function avarageAllSubject(){
+          $sum = DB::table('subjects')->sum('grade');
+
+          $count = DB::table('subjects')->select('grade')->count();
+
+          $arg = $sum/$count;
+          return $arg;
+        }
+
+        public function avarageOneSubject(Request $request){
+
+          $groupSub = DB::table('subjects')->select("subject")->groupBy("subject")->get();
+          // echo $groupSub;
+
+          $input= $request->subject;
+          $all =  DB::table('subjects')->where("subject", $input)->sum("grade");
+          echo $all;
+
         }
     }
