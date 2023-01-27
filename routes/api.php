@@ -24,19 +24,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
-    Route::post('/subjects', [SubjectController::class, "store" ]); 
-    Route::put('/subjects/{id}', [SubjectController::class, "update" ]); 
-    Route::delete('/subjects/{id}', [SubjectController::class, "destroy" ]); 
+
+
+  
+    
+
 });
+
+Route::delete('/subjects/{id}', [SubjectController::class, "destroy" ]); 
+Route::post('/subjects', [SubjectController::class, "store" ]); 
+Route::put('/subjects/{id}', [SubjectController::class, "update" ]); 
+
 
 Route::post('/register', [AuthController::class, "register" ]); 
 Route::post('/login', [AuthController::class, "login" ]); 
 
+Route::post('/logout', [AuthController::class, "logout" ]); 
+
 Route::get('/subject', [SubjectController::class, "index" ]); 
 Route::get('/subjects/{id}', [SubjectController::class, "show" ]); 
+
+
+
 Route::get('upload',[FileController::class, 'create']);
 Route::post('upload', [FileController::class, 'store']);
-
 
 
 // ADMIN API ROUTE

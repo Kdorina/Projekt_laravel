@@ -54,6 +54,21 @@ class AuthController extends BaseController
         return $this->sendResponse($success, "Sikeres regisztráció.");
     }
 
+    public function logout(Request $request){
+
+        auth("sanctum")->user()->currentAccessToken()->delete();
+        return response()->json("sikeres kijelentkezés");
+    }
+
+
+
+
+
+
+
+
+
+
 ///ADMIN oldalhoz lekérdezés
 
     public function getUsers(){
@@ -75,24 +90,11 @@ class AuthController extends BaseController
 
     public function userAge(Request $request){
         
-        $age = User::first();
-        // return now()->format('Y'); //<= now year
-
-         $bd = DB::table('users')->select('date_of_birth')->get();
-        // $bd = DB::select('SELECT (366 + DAYOFYEAR(buildingName) - DAYOFYEAR(NOW()))%366 AS Year FROM users ');
-            $currentYear = date('Y');
-        print($bd);
+      
+        $b = DB::table('users')->select('date_of_birth')->first();
+        print_r($b);
 
 
-        // $yearStr = strtotime($bd);
-       
-        // if(empty($bd)){
-        //     echo 'helytelen értéket ad vissza';
-        // }else{
-        //     echo 'helyes értéket ad vissza';
-            
-        // };
-       
     }
 
     public function getGenders(){
