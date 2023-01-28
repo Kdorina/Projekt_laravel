@@ -30,7 +30,8 @@ class AuthController extends BaseController
 
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), 
+        $input = $request->all();
+        $validator = Validator::make($input, 
         [
             "buildingName" => "required",
             "name" => "required",
@@ -45,8 +46,7 @@ class AuthController extends BaseController
         {
             return $this->sendError("Error validation", $validator->errors() );
         }
-
-        $input = $request->all();
+        
         $input["password"] = bcrypt($input["password"]);
         $user = User::create($input);
         $success ["name"] = $user->name;

@@ -17,9 +17,9 @@ class FileController extends Controller
         $file = File::find($id);
 
         if(is_null($file)){
-            return $this->sendError($validator->errors());
+            return $this->sendError("A fájl nem létezik");
         }else{
-            return $this->sendResponse(new FileResource( $file), "OK");
+            return $this->sendResponse(new FileResource( $file), "A fájl létezik");
         }
     }
 
@@ -33,16 +33,16 @@ class FileController extends Controller
         ]);
 
         if($validator->fails()){
-             return $this->sendError($validator->errors());
+             return $this->sendError($validator,"Fájl létrehozása sikertelen");
         
          }
 
         $file = File::create( $input );
         // print_r("siker");
-        return $this->sendResponse(new FileResource( $file), "File létrehozva");
+        return $this->sendResponse(new FileResource( $file), "Fájl létrehozva");
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
         $input = $request->all();
 
         $validator = Validator::make($input, [
@@ -50,19 +50,21 @@ class FileController extends Controller
         ]);
 
         if($validator->fails()){
-            return $this->sendError($validator->errors());
+            return $this->sendError($validator, "Hiba! Szerkeztés sikertelen");
        
         }
 
        $file = File::find( $id );
+       $file->update($input);
        // print_r("siker");
-       return $this->sendResponse(new FileResource( $file), "File frissítve");
+       return $this->sendResponse(new FileResource( $file), "Fájl frissítve");
     }
 
     public function destroy($id){
-        File::destroy($id);
-
-        return $this->sendResponse([], "Sikeresen törölve");
+        
+        $file=File::find($id);
+        $file->delete();
+        return $this->sendResponse(new FileResource($file), "Sikeresen törölve");
 
     }
 }
