@@ -23,7 +23,8 @@ class SubjectController extends BaseController
           $input = $request->all();
           $validator = Validator::make($input, [
             "subject"=>"required",
-            "grade"=>"required"
+            "grade"=>"required",
+            // "user_id"=>"required"
           ]);
 
           if($validator->fails()){
@@ -52,6 +53,7 @@ class SubjectController extends BaseController
     
               "subject" => "required",
               "grade" => "required",
+              // "user_id" => "required",
             
             ]);
     

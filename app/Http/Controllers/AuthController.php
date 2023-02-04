@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Validator;
+use Illuminate\Http\Response;
 use App\Models\User;
+use Validator;
 use DB;
 use Carbon\Carbon;
 use App\Http\Resources\User as UserResource;
@@ -14,7 +15,7 @@ class AuthController extends BaseController
 {
     public function login(Request $request)
     {
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){;
+        if(Auth::attempt(['name' => $request->name, 'password' => $request->password])){;
 
         $authUser = Auth::user();
         $success["token"] = $authUser->createToken("MyAuthApp")->plainTextToken;
@@ -52,6 +53,13 @@ class AuthController extends BaseController
         $success ["name"] = $user->name;
         // print_r("Sikeres regisztráció");
         return $this->sendResponse($success, "Sikeres regisztráció.");
+
+        $token = $user->createToken('sajatToken')->plainTextToken;
+        $response = [
+            'user' => $user,
+            'token' => $token
+        ];
+        return response($response, 201);
     }
 
     public function logout(Request $request){

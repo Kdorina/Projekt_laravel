@@ -19,7 +19,8 @@ class Subject extends JsonResource
         return [
             "id"=> $this->id,
             "subject"=> $this->subject,
-            "grade"=> $this->grade
+            "grade"=> $this->grade,
+            // 'user' => $this->user->user
          
         ];
     }

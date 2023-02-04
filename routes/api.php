@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\NoteController;
 
 
 /*
@@ -33,12 +34,8 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
 
 });
 
-
-
-
 Route::post('/register', [AuthController::class, "register" ]); 
 Route::post('/login', [AuthController::class, "login" ]); 
-
 Route::post('/logout', [AuthController::class, "logout" ]); 
 
 Route::get('/subject', [SubjectController::class, "index" ]); 
@@ -47,12 +44,7 @@ Route::post('/arg', [SubjectController::class, "avarage" ]);
 Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]); 
 
 
-
-Route::get('upload',[FileController::class, 'create']);
-Route::post('upload', [FileController::class, 'store']);
-
-
-// ADMIN API ROUTE
+// ADMIN API ROUTE/+ADMIN OLDALHOZ 
 Route::post('/adminReg', [AdminController::class, "adminRegister" ]); 
 Route::post('/adminLog', [AdminController::class, "adminLogin" ]); 
 
@@ -63,11 +55,14 @@ Route::get('/age', [AuthController::class, "userAge" ]);
 Route::get('/gender', [AuthController::class, "getGenders" ]); 
 Route::get('/allBuilding', [AuthController::class, "allBuilding" ]); 
 
-
+//NOTES
+Route::get('/note', [NoteController::class, 'index']);
+// Route::get('/notes/{id}', [NoteController::class, 'show']);
+Route::post('/notes', [NoteController::class, 'store']);
+Route::delete('/notes/{id}', [NoteController::class, 'destroy']);
 
 //FILES 
-Route::get('/allFile', [FileController::class, 'index']);
-Route::get('/showFile', [FileController::class, 'show']);
-Route::post('/addFile', [FileController::class, 'store']);
-Route::put('/updateFile/{id}', [FileController::class, 'update']);
-Route::get('/updateFile', [FileController::class, 'update']);
+Route::get('/image', [FileController::class, 'index']);
+Route::get('/images/{id}', [FileController::class, 'show']);
+Route::post('/images', [FileController::class, 'store']);
+Route::delete('/images/{id}', [FileController::class, 'destroy']);
