@@ -13,6 +13,7 @@ class NoteController extends BaseController
 
     public function index(){
         $note = Note::all();
+        return $note;
         return $this->sendResponse( NoteResource::collection($note), "Sikeres elérés" );
 
     }
@@ -24,10 +25,10 @@ class NoteController extends BaseController
         ]);
 
         if($validator->fails()){
-            return $this->senError($validator, "Sikertelen feltöltés");
+            return $this->sendError($validator, "Sikertelen feltöltés");
         }
         $input = Note::create($input);
-        return $this->sendResponse( new NoteResource($input), "sSkeres feltöltés");
+        return $this->sendResponse( new NoteResource($input), "Sikeres feltöltés");
 
     }
 

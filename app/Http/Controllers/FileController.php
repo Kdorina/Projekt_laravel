@@ -28,40 +28,24 @@ class FileController extends BaseController
         }
     }
 
-    public function store(ImageStoreRequest $request){
+    public function store(Request $request){
 
-        
-        // $validatedData = $request->validated();
-        // $validatedData['image'] = $request->file('image')->store('image');
-        // $data = Image::create($validatedData);
-
-        // return response($data, Response::HTTP_CREATED);
-
-        $this->validate($request, [
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            // 'user_id' => 'required'
-        ]);
-        $image_path = $request->file('image')->store('image', 'public');
-
-        $data = Image::create([
-            'image' => $image_path,
+        $input = $request->all();
+        $validator = Validator::make($input, [
+                'description'=> 'required',
+                'image'=>'required|mimes:png,jpg,gif,jpeg,pdf'
         ]);
 
-        return response($data, Response::HTTP_CREATED);
-
-    //     $input = $request->all();
-    //     $validator = Validator::make($input, [
-    //         "image"=>"required"
-    //     ]);
-
-    //     if($validator->fails()){
-    //         return $this->sendError($validator, "Hiba! sikertelen felvétel");
+        if($validator->fails()){
+            return $this->sendError($validator, "Hiba! sikertelen felvétel");
        
-    //     }
-    //    $input = File::create($input);
-    //    // print_r("siker");
+        }
+        $file = $request->file('image');
+        $name = $file->getClientOriginalName();
+        $input = File::create($input);
+       // print_r("siker");
     //    return $input;
-    //    return $this->sendResponse(new FileResource( $input), "Fájl hozzáadva");
+       return $this->sendResponse(new FileResource( $input), "Fájl hozzáadva");
     }
 
     public function destroy($id){
