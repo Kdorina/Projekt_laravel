@@ -18,8 +18,8 @@ class Note extends JsonResource
         return [
 
         "id"=> $this->id,
-        "note"=> $this->note
-        
+        "note"=> $this->note,
+        'user_id' => $this->user_id
         ];
     }
 }

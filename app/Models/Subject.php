@@ -8,14 +8,15 @@ use App\Models\User;
 class Subject extends Model
 {
 
-    // public function users(){
-    //     return $this->belongsTo(User::class);
-    // }
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
     use HasFactory;
     protected $fillable =[
         'subject',
         'grade',
-        // 'user_id',
+        'user_id',
     ];
     public $timestamps = false;
 

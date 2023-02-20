@@ -16,7 +16,7 @@ class File extends Model
     protected $fillable =[
         'description',
         'image',
-        // 'user_id',
+        'user_id',
     ];
     public $timestamps = false;
 }

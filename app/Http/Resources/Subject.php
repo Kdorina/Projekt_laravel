@@ -20,7 +20,7 @@ class Subject extends JsonResource
             "id"=> $this->id,
             "subject"=> $this->subject,
             "grade"=> $this->grade,
-            // 'user' => $this->user->user
+            'user_id' => $this->user_id
          
         ];
     }

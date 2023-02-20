@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Validator;
 use DB;
 use App\Models\Subject;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController as BaseController;
 use App\Http\Resources\Subject as SubjectResource;
@@ -20,19 +21,30 @@ class SubjectController extends BaseController
     
         public function store(Request $request){
     
-          $input = $request->all();
-          $validator = Validator::make($input, [
-            "subject"=>"required",
-            "grade"=>"required",
-            // "user_id"=>"required"
+          if (Auth::check())
+            {
+                $id = Auth::user()->getId();
+            }
+            
+          // $input = $request->all();
+          // $validator = Validator::make($input, [
+          //   "subject"=>"required",
+          //   "grade"=>"required",
+          //   "user_id"=>"required"
+          // ]);
+
+          $sub = Subject::create([
+            "subject"=> $request->subject,
+            "grade"=> $request->grade,
+            "user_id"=> $id
           ]);
 
-          if($validator->fails()){
-            return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
-          }
-          $input = Subject::create($input);
+          // if($validator->fails()){
+          //   return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
+          // }
+          // $input = Subject::create($input);
         //   return $input;
-          return $this->sendResponse( new SubjectResource($input), "Sikeres feltöltés");
+          return $this->sendResponse( new SubjectResource($sub), "Sikeres feltöltés");
         }
 
 
@@ -58,7 +70,7 @@ class SubjectController extends BaseController
             ]);
     
             if($validator->fails()){
-                return $this-sendError($validator, "Hiba! Szerkeztés sikertelen");
+                return $this->sendError($validator, "Hiba! Szerkeztés sikertelen");
             }
     
             $subject = Subject::find( $id );

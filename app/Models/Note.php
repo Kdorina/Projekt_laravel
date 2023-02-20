@@ -9,10 +9,11 @@ use App\Models\User;
 class Note extends Model
 {
     use HasFactory;
-    // public function users(){
-    //     return $this->belongsTo(User::class);
-    // }
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
     protected $fillable =[
-        "note"
+        "note",
+        'user_id',
     ];
 }
