@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
-
+    Route::get('/subject', [SubjectController::class, "index" ]); 
 
     Route::delete('/subjects/{id}', [SubjectController::class, "destroy" ]); 
     Route::post('/subjects', [SubjectController::class, "store" ]); 
@@ -39,7 +39,7 @@ Route::post('/register', [AuthController::class, "register" ]);
 Route::post('/login', [AuthController::class, "login" ]); 
 Route::post('/logout', [AuthController::class, "logout" ]); 
 
-Route::get('/subject', [SubjectController::class, "index" ]); 
+
 Route::get('/subjects/{id}', [SubjectController::class, "show" ]); 
 Route::post('/arg', [SubjectController::class, "avarage" ]); 
 Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]); 

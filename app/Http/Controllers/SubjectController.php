@@ -13,9 +13,13 @@ use App\Http\Resources\Subject as SubjectResource;
 class SubjectController extends BaseController
 {
         public function index(){
-            $data = Subject::all();
-            return $data;
-            return $this->sendResponse( SubjectResource::collection($data), "Sikeres");
+          $subject = Subject::get();
+          if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $subject =  DB::table("subjects")->where(['user_id'=>$user_id])->get();
+          }
+          return $subject;
+          return $this->sendResponse( SubjectResource::collection($subject), "Sikeres");
         }
     
     
