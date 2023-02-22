@@ -87,9 +87,11 @@ class SubjectController extends BaseController
             $subject->delete();
             return $this->sendResponse(new SubjectResource($subject) , "Tantárgy törölve");
 
+    
+        
         }
 
-
+        //eddigi felvett tantárgyak átlaga
         public function avarageAllSubject(){
           if(Auth::check()){
             $user_id = Auth::user()->id;
@@ -101,6 +103,7 @@ class SubjectController extends BaseController
           return $arg;
         }
 
+        //eddigi felvett tantárgyai a felhasználónak
         public function avarageOneSubject(Request $request){
           if(Auth::check()){
             $user_id = Auth::user()->id;
@@ -108,5 +111,18 @@ class SubjectController extends BaseController
           }
           return $groupSub;
 
+        }
+
+
+        /////ADMIN OLDALHOZ
+
+
+        //felvett tantárgyak személyenként összesítve 
+        public function usersSubjectsShow(){
+          $subject = Subject::get();
+          $s = DB::select('SELECT count(subject), user_id FROM `subjects` GROUP BY subject, user_id ORDER BY user_id ' );
+          $count = DB::table('subjects')->select('subject', 'user_id')->groupBy('subject', 'user_id')->orderBy('user_id')->get();
+          // return $s;
+          return $count;
         }
     }

@@ -57,7 +57,13 @@ Route::get('/users', [AuthController::class, "showUsers" ]);
 Route::get('/sum', [AuthController::class, "countUsers" ]); 
 Route::get('/age', [AuthController::class, "userAge" ]); 
 Route::get('/gender', [AuthController::class, "getGenders" ]); 
+Route::get('/womens', [AuthController::class, "getWomens" ]); 
+Route::get('/mens', [AuthController::class, "getMens" ]); 
+Route::get('/else', [AuthController::class, "getElse" ]); 
 Route::get('/allBuilding', [AuthController::class, "allBuilding" ]); 
+
+Route::get('/usersSubjects', [SubjectController::class, "usersSubjectsShow" ]); 
+
 
 
 //NOTES

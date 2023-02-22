@@ -71,11 +71,6 @@ class AuthController extends BaseController
 
 
 
-
-
-
-
-
 ///ADMIN oldalhoz lekérdezés
 
     public function getUsers(){
@@ -96,10 +91,10 @@ class AuthController extends BaseController
     }
 
     public function userAge(Request $request){
-        
-      
-        $b = DB::table('users')->select('date_of_birth')->first();
-        print_r($b);
+        $date = now();
+        $b = DB::table('users')->whereYear('date_of_birth' ,"<", $date->year)->select("date_of_birth")->get();
+        // $age = Carbon::parse($b)->age;
+        return $b;
 
 
     }
@@ -108,23 +103,40 @@ class AuthController extends BaseController
 
         // $user = DB::table('users')->where("gender", "nő")->get();
         // $women = $user->count('id');
-        // echo "<pre>";
-        // print_r($women);
+        
+        // return $women;
         
         // $user = DB::table('users')->where("gender", "férfi")->get();
         // $man = $user->count('id');
         
-        //   echo "<pre>";
-        //     print_r($man);
+        // return $man;
 
         // $user = DB::table('users')->where("gender", "egyéb")->get();
         // $else = $user->count('id');
-
-        // echo "<pre>";
-        // print_r($else);
+        
+        // return $else;
         
         // echo "<pre>";
         // print_r($allUser);
+    }
+
+    public function getWomens(){
+        $user = DB::table('users')->where("gender", "nő")->get();
+        $women = $user->count('id');
+        
+        return $women;
+    }
+    public function getMens(){
+        $user = DB::table('users')->where("gender", "férfi")->get();
+        $man = $user->count('id');
+        
+        return $man;
+    }
+    public function getElse(){
+        $user = DB::table('users')->where("gender", "egyéb")->get();
+        $else = $user->count('id');
+        
+        return $else;
     }
 
     public function allBuilding(){
