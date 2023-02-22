@@ -9,13 +9,19 @@ use App\Models\File;
 use App\Http\Resources\File as FileResource;
 use App\Http\Controllers\BaseController as BaseController;
 use Symfony\Component\HttpFoundation\Response;
+use DB;
+use Illuminate\Support\Facades\Auth;
 
 class FileController extends BaseController
 {
     public function index(){
-        $image = File::all();
-        return $image;
-        // return $this->sendResponse("ok");
+        $file = File::get();
+        if(Auth::check()){
+          $user_id = Auth::user()->id;
+          $file =  DB::table("files")->where(['user_id'=>$user_id])->get();
+        }
+        return $file;
+        return $this->sendResponse( NoteResource::collection($file), "Sikeres elérés" );
     }
 
     public function show($id){
@@ -29,23 +35,28 @@ class FileController extends BaseController
     }
 
     public function store(Request $request){
-
+        if (Auth::check())
+        {
+            $id = Auth::user()->getId();
+        }
         $input = $request->all();
         $validator = Validator::make($input, [
                 'description'=> 'required',
-                'image'=>'required|mimes:png,jpg,gif,jpeg,pdf'
+                'image'=>'required'
         ]);
 
         if($validator->fails()){
             return $this->sendError($validator, "Hiba! sikertelen felvétel");
        
         }
-        $file = $request->file('image');
-        $name = $file->getClientOriginalName();
-        $input = File::create($input);
+        $input = File::create([
+            'description'=> $request->description,
+            'image'=> $request->image,
+            "user_id"=> $id
+        ]);
        // print_r("siker");
     //    return $input;
-       return $this->sendResponse(new FileResource( $input), "Fájl hozzáadva");
+       return $this->sendResponse(new FileResource( $input ), "Fájl hozzáadva");
     }
 
     public function destroy($id){

@@ -23,27 +23,30 @@ use App\Http\Controllers\NoteController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//SUBJECTS
 Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('/subject', [SubjectController::class, "index" ]); 
 
     Route::delete('/subjects/{id}', [SubjectController::class, "destroy" ]); 
     Route::post('/subjects', [SubjectController::class, "store" ]); 
     Route::put('/subjects/{id}', [SubjectController::class, "update" ]); 
-    
+    Route::post('/logout', [AuthController::class, "logout" ]); 
+
+    Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]);
+    Route::get('/arg', [SubjectController::class, "avarageOneSubject" ]); 
 
 });
 
+Route::get('/subjects/{id}', [SubjectController::class, "show" ]); 
 
 Route::post('/register', [AuthController::class, "register" ]); 
 Route::post('/login', [AuthController::class, "login" ]); 
-Route::post('/logout', [AuthController::class, "logout" ]); 
 
 
-Route::get('/subjects/{id}', [SubjectController::class, "show" ]); 
-Route::post('/arg', [SubjectController::class, "avarage" ]); 
-Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]); 
-
+//ADMIN
+Route::group(['middleware'=>['auth:sanctum']], function(){
+    //admin logout
+});
 
 // ADMIN API ROUTE/+ADMIN OLDALHOZ 
 Route::post('/adminReg', [AdminController::class, "adminRegister" ]); 
@@ -56,14 +59,23 @@ Route::get('/age', [AuthController::class, "userAge" ]);
 Route::get('/gender', [AuthController::class, "getGenders" ]); 
 Route::get('/allBuilding', [AuthController::class, "allBuilding" ]); 
 
+
 //NOTES
+Route::group(['middleware'=>['auth:sanctum']], function(){
+
 Route::get('/note', [NoteController::class, 'index']);
 // Route::get('/notes/{id}', [NoteController::class, 'show']);
 Route::post('/notes', [NoteController::class, 'store']);
 Route::delete('/notes/{id}', [NoteController::class, 'destroy']);
 
-//FILES 
+});
+
+//FILES
+Route::group(['middleware'=>['auth:sanctum']], function(){
+
 Route::get('/image', [FileController::class, 'index']);
-Route::get('/images/{id}', [FileController::class, 'show']);
+// Route::get('/images/{id}', [FileController::class, 'show']);
 Route::post('/images', [FileController::class, 'store']);
 Route::delete('/images/{id}', [FileController::class, 'destroy']);
+
+});

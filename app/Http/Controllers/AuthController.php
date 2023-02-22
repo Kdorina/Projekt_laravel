@@ -15,7 +15,7 @@ class AuthController extends BaseController
 {
     public function login(Request $request)
     {
-        if(Auth::attempt(['name' => $request->name, 'password' => $request->password])){;
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){;
 
         $authUser = Auth::user();
         $success["token"] = $authUser->createToken("MyAuthApp")->plainTextToken;
@@ -63,7 +63,6 @@ class AuthController extends BaseController
     }
 
     public function logout(Request $request){
-
         auth("sanctum")->user()->currentAccessToken()->delete();
         return response()->json("sikeres kijelentkezés");
     }

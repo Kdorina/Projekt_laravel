@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('subject');
             $table->integer('grade');
-            // $table->unsignedBigInteger('user_id');
-            // $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('user_id');
             //$table->timestamps();
         });

@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->string("note");
-            // $table->unsignedBigInteger('user_id');
-            // $table->foreign('user_id')->references('id')->on('users');
-            // $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

@@ -29,25 +29,23 @@ class SubjectController extends BaseController
             {
                 $id = Auth::user()->getId();
             }
-            
-          // $input = $request->all();
-          // $validator = Validator::make($input, [
-          //   "subject"=>"required",
-          //   "grade"=>"required",
-          //   "user_id"=>"required"
-          // ]);
 
+          $input = $request->all();
+          $validator = Validator::make($input, [
+            "subject"=>"required",
+            "grade"=>"required"
+          ]);
+
+          if($validator->fails()){
+            return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
+          }
+         
           $sub = Subject::create([
             "subject"=> $request->subject,
             "grade"=> $request->grade,
             "user_id"=> $id
           ]);
-
-          // if($validator->fails()){
-          //   return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
-          // }
-          // $input = Subject::create($input);
-        //   return $input;
+          
           return $this->sendResponse( new SubjectResource($sub), "Sikeres feltöltés");
         }
 
@@ -64,12 +62,10 @@ class SubjectController extends BaseController
     
         public function update(Request $request, $id){
              $input = $request->all();
-    
             $validator = Validator::make($input, [
     
               "subject" => "required",
               "grade" => "required",
-              // "user_id" => "required",
             
             ]);
     
@@ -91,28 +87,26 @@ class SubjectController extends BaseController
             $subject->delete();
             return $this->sendResponse(new SubjectResource($subject) , "Tantárgy törölve");
 
-    
-        
         }
 
 
         public function avarageAllSubject(){
-          $sum = DB::table('subjects')->sum('grade');
+          if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $sum = DB::table('subjects')->where(['user_id'=>$user_id])->sum('grade');
+            $count = DB::table('subjects')->where(['user_id'=>$user_id])->select('grade')->count();
+            $arg = $sum/$count;
+          }
 
-          $count = DB::table('subjects')->select('grade')->count();
-
-          $arg = $sum/$count;
           return $arg;
         }
 
         public function avarageOneSubject(Request $request){
-
-          $groupSub = DB::table('subjects')->select("subject")->groupBy("subject")->get();
-          // echo $groupSub;
-
-          $input= $request->subject;
-          $all =  DB::table('subjects')->where("subject", $input)->sum("grade");
-          echo $all;
+          if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $groupSub = DB::table('subjects')->where(["user_id"=> $user_id])->select('subject')->groupBy("subject")->get();
+          }
+          return $groupSub;
 
         }
     }
