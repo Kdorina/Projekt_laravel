@@ -106,11 +106,24 @@ class SubjectController extends BaseController
         //eddigi felvett tantárgyai a felhasználónak
         public function avarageOneSubject(Request $request){
           if(Auth::check()){
-            $user_id = Auth::user()->id;
+            $user_id = Auth::user()->id; 
             $groupSub = DB::table('subjects')->where(["user_id"=> $user_id])->select('subject')->groupBy("subject")->get();
           }
           return $groupSub;
 
+        }
+
+        public function avgGradeFromAddSubjects(){
+          if(Auth::check()){
+            $user_id = Auth::user()->id; 
+            // $avg = DB::select('SELECT subject,sum(grade)/count(subject), user_id 
+            // FROM subjects GROUP BY user_id, subject ORDER BY sum(grade), count(subject) ');
+
+            $avg = DB::table('subjects')->where(["user_id"=> $user_id])->
+            select('user_id', 'subject',DB::raw('(sum(grade)/count(subject))as atlag'))->
+            groupBy('user_id','subject')->get();
+          }
+          return $avg;
         }
 
 

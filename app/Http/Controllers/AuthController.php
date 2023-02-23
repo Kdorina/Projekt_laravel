@@ -91,8 +91,7 @@ class AuthController extends BaseController
     }
 
     public function userAvgAge(Request $request){
-        $date = DB::select('SELECT ROUND(AVG(YEAR(CURDATE())-Year(date_of_birth))) as "Átlag életkor" FROM users');
-
+        $date = DB::select('SELECT ROUND(AVG(YEAR(CURDATE())-Year(date_of_birth))) as "kor" FROM users');
         return $date;
 
     }

@@ -34,6 +34,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
 
     Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]);
     Route::get('/arg', [SubjectController::class, "avarageOneSubject" ]); 
+    Route::get('/grade', [SubjectController::class, "avgGradeFromAddSubjects" ]); 
 
 });
 
@@ -63,6 +64,8 @@ Route::get('/else', [AuthController::class, "getElse" ]);
 Route::get('/allBuilding', [AuthController::class, "allBuilding" ]); 
 
 Route::get('/usersSubjects', [SubjectController::class, "usersSubjectsShow" ]); 
+
+
 
 
 

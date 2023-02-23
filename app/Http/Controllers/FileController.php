@@ -39,21 +39,23 @@ class FileController extends BaseController
         {
             $id = Auth::user()->getId();
         }
-        $input = $request->all();
-        $validator = Validator::make($input, [
-                'description'=> 'required',
-                'image'=>'required'
-        ]);
+        $image = $request->file("image")->store('public/images');
+        // $input = $request->all();
+        // $validator = Validator::make($input, [
+        //         'description'=> 'required',
+        //         'image'=>'required'
+        // ]);
 
-        if($validator->fails()){
-            return $this->sendError($validator, "Hiba! sikertelen felvétel");
+        // if($validator->fails()){
+        //     return $this->sendError($validator, "Hiba! sikertelen felvétel");
        
-        }
+        // }
         $input = File::create([
             'description'=> $request->description,
-            'image'=> $request->image,
+            'image'=> $image,
             "user_id"=> $id
         ]);
+
        // print_r("siker");
     //    return $input;
        return $this->sendResponse(new FileResource( $input ), "Fájl hozzáadva");
