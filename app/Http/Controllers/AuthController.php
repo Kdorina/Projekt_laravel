@@ -90,34 +90,11 @@ class AuthController extends BaseController
         return $this->sendResponse( new UserResource ($user), "Post betöltve" );
     }
 
-    public function userAge(Request $request){
-        $date = now();
-        $b = DB::table('users')->whereYear('date_of_birth' ,"<", $date->year)->select("date_of_birth")->get();
-        // $age = Carbon::parse($b)->age;
-        return $b;
+    public function userAvgAge(Request $request){
+        $date = DB::select('SELECT ROUND(AVG(YEAR(CURDATE())-Year(date_of_birth))) as "Átlag életkor" FROM users');
 
+        return $date;
 
-    }
-
-    public function getGenders(){
-
-        // $user = DB::table('users')->where("gender", "nő")->get();
-        // $women = $user->count('id');
-        
-        // return $women;
-        
-        // $user = DB::table('users')->where("gender", "férfi")->get();
-        // $man = $user->count('id');
-        
-        // return $man;
-
-        // $user = DB::table('users')->where("gender", "egyéb")->get();
-        // $else = $user->count('id');
-        
-        // return $else;
-        
-        // echo "<pre>";
-        // print_r($allUser);
     }
 
     public function getWomens(){

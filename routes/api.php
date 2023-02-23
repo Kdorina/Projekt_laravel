@@ -55,7 +55,7 @@ Route::post('/adminLog', [AdminController::class, "adminLogin" ]);
 Route::get('/user', [AuthController::class, "getUsers" ]); 
 Route::get('/users', [AuthController::class, "showUsers" ]); 
 Route::get('/sum', [AuthController::class, "countUsers" ]); 
-Route::get('/age', [AuthController::class, "userAge" ]); 
+Route::get('/age', [AuthController::class, "userAvgAge" ]); 
 Route::get('/gender', [AuthController::class, "getGenders" ]); 
 Route::get('/womens', [AuthController::class, "getWomens" ]); 
 Route::get('/mens', [AuthController::class, "getMens" ]); 
