@@ -54,4 +54,14 @@ class NoteController extends BaseController
         return $this->sendResponse(new NoteResource($note), "Note sikeresen törlöve");
     }
 
+    public function countNotes(){
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $count = DB::table('notes')->where(['user_id'=>$user_id])->select('note')->count();
+          
+          }
+
+          return $count;
+    }
+
 }

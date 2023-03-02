@@ -92,6 +92,7 @@ class SubjectController extends BaseController
         }
 
         //eddigi felvett tantárgyak átlaga
+
         public function avarageAllSubject(){
           if(Auth::check()){
             $user_id = Auth::user()->id;
@@ -120,12 +121,24 @@ class SubjectController extends BaseController
             // FROM subjects GROUP BY user_id, subject ORDER BY sum(grade), count(subject) ');
 
             $avg = DB::table('subjects')->where(["user_id"=> $user_id])->
-            select('user_id', 'subject',DB::raw('(sum(grade)/count(subject))as atlag'))->
+            select('user_id', 'subject',DB::raw('(sum(grade)/count(subject))as atlag, count(subject) as jegydb'))->
             groupBy('user_id','subject')->get();
           }
           return $avg;
         }
 
+    
+        // public function countGradesShow(){
+        //   if(Auth::check()){
+        //     $user_id = Auth::user()->id; 
+        //     $avg = DB::table('subjects')->where(["user_id"=> $user_id])->
+        //     select('subject',DB::raw('count(subject)as darab'))->
+        //     groupBy('subject')->get();
+        //   }
+        //   return $avg;
+        // }
+
+    
 
         /////ADMIN OLDALHOZ
 

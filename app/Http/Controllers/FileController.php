@@ -39,7 +39,9 @@ class FileController extends BaseController
         {
             $id = Auth::user()->getId();
         }
-        $image = $request->file("image")->store('public/images');
+        // $image = $request->file("image")->store('storage/images');
+        $imagename = $request->file("image")->hashName();
+        Storage::disk('local')->put($imagename, file_get_contents($request->file("image")));
         // $input = $request->all();
         // $validator = Validator::make($input, [
         //         'description'=> 'required',
@@ -52,7 +54,7 @@ class FileController extends BaseController
         // }
         $input = File::create([
             'description'=> $request->description,
-            'image'=> $image,
+            'image'=> $imagename,
             "user_id"=> $id
         ]);
 
@@ -67,5 +69,15 @@ class FileController extends BaseController
         $file->delete();
         return $this->sendResponse(new FileResource($file), "Sikeresen törölve");
 
+    }
+
+    public function countFile(){
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $count = DB::table('files')->where(['user_id'=>$user_id])->select('image')->count();
+          
+          }
+
+          return $count;
     }
 }

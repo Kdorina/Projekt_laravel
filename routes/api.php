@@ -35,6 +35,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]);
     Route::get('/arg', [SubjectController::class, "avarageOneSubject" ]); 
     Route::get('/grade', [SubjectController::class, "avgGradeFromAddSubjects" ]); 
+    Route::get('/count', [SubjectController::class, "countGradesShow" ]); 
 
 });
 
@@ -76,6 +77,7 @@ Route::get('/note', [NoteController::class, 'index']);
 // Route::get('/notes/{id}', [NoteController::class, 'show']);
 Route::post('/notes', [NoteController::class, 'store']);
 Route::delete('/notes/{id}', [NoteController::class, 'destroy']);
+Route::get('/countNote', [NoteController::class, 'countNotes']);
 
 });
 
@@ -86,5 +88,6 @@ Route::get('/image', [FileController::class, 'index']);
 // Route::get('/images/{id}', [FileController::class, 'show']);
 Route::post('/images', [FileController::class, 'store']);
 Route::delete('/images/{id}', [FileController::class, 'destroy']);
+Route::get('/countfile', [FileController::class, 'countFile']);
 
 });
