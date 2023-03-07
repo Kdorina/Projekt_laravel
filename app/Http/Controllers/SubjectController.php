@@ -98,7 +98,7 @@ class SubjectController extends BaseController
             $user_id = Auth::user()->id;
             $sum = DB::table('subjects')->where(['user_id'=>$user_id])->sum('grade');
             $count = DB::table('subjects')->where(['user_id'=>$user_id])->select('grade')->count();
-            $arg = $sum/$count;
+            $arg = round($sum/$count, 2);
           }
 
           return $arg;
