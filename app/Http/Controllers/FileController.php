@@ -39,28 +39,44 @@ class FileController extends BaseController
         {
             $id = Auth::user()->getId();
         }
-        // $image = $request->file("image")->store('storage/images');
-        $imagename = $request->file("image")->hashName();
-        Storage::disk('local')->put($imagename, file_get_contents($request->file("image")));
-        // $input = $request->all();
-        // $validator = Validator::make($input, [
-        //         'description'=> 'required',
-        //         'image'=>'required'
+        // $image = $request->file("image")->store('public/img');
+
+        // $input = File::create([
+        //     'description'=> $request->description,
+        //     'image'=> $image,
+        //     "user_id"=> $id
         // ]);
 
-        // if($validator->fails()){
-        //     return $this->sendError($validator, "Hiba! sikertelen felvétel");
-       
-        // }
-        $input = File::create([
-            'description'=> $request->description,
-            'image'=> $imagename,
-            "user_id"=> $id
-        ]);
+    //     $image = $request->file('image');
+    //     $imageName = $image->getClientOriginalName();
+    //     $image = public_path('images/' . $imageName);
 
-       // print_r("siker");
+    //      $input = File::create([
+    //         // 'description'=> $request->description,
+    //         'image'=> $image,
+    //         "user_id"=> $id
+    //     ]);
+
     //    return $input;
-       return $this->sendResponse(new FileResource( $input ), "Fájl hozzáadva");
+    $input = $request->all();
+    $validator = Validator::make($input, [
+      "description"=>"required",
+      "image"=>"required"
+    ]);
+
+    if($validator->fails()){
+      return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
+    }
+    $image = $request->file('image');
+    $imageName = $image->getClientOriginalName();
+    $image = public_path('images/' . $imageName);
+    $in = File::create([
+        "description"=>$request->description,
+      "image"=> $image,
+      "user_id"=> $id
+    ]);
+    
+    return $in;
     }
 
     public function destroy($id){
