@@ -23,9 +23,9 @@ use App\Http\Controllers\NoteController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-//SUBJECTS
+//SUBJECTS    
 Route::group(['middleware'=>['auth:sanctum']], function(){
-    Route::get('/subject', [SubjectController::class, "index" ]); 
+    Route::get('/subject', [SubjectController::class, "index" ]); //INDEX
 
     Route::delete('/subjects/{id}', [SubjectController::class, "destroy" ]); 
     Route::post('/subjects', [SubjectController::class, "store" ]); 
@@ -35,7 +35,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]);
     Route::get('/arg', [SubjectController::class, "avarageOneSubject" ]); 
     Route::get('/grade', [SubjectController::class, "avgGradeFromAddSubjects" ]); 
-    Route::get('/count', [SubjectController::class, "countGradesShow" ]); 
+    // Route::get('/count', [SubjectController::class, "countGradesShow" ]); 
 
 });
 
@@ -55,10 +55,10 @@ Route::post('/adminReg', [AdminController::class, "adminRegister" ]);
 Route::post('/adminLog', [AdminController::class, "adminLogin" ]); 
 
 Route::get('/user', [AuthController::class, "getUsers" ]); 
-Route::get('/users', [AuthController::class, "showUsers" ]); 
+Route::get('/users/{id}', [AuthController::class, "showUsers" ]); 
 Route::get('/sum', [AuthController::class, "countUsers" ]); 
 Route::get('/age', [AuthController::class, "userAvgAge" ]); 
-Route::get('/gender', [AuthController::class, "getGenders" ]); 
+// Route::get('/gender', [AuthController::class, "getGenders" ]); 
 Route::get('/womens', [AuthController::class, "getWomens" ]); 
 Route::get('/mens', [AuthController::class, "getMens" ]); 
 Route::get('/else', [AuthController::class, "getElse" ]); 

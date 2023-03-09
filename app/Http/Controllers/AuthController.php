@@ -81,6 +81,12 @@ class AuthController extends BaseController
         // return $this->sendResponse( UserResource::collection($user), "OK");
 
     }
+
+    public function countUsers(){
+        $sum = DB::table('users')->select('id')->count('id');
+        return $sum;
+    }
+    
     public function showUsers($id){
         $user = User::find($id);
     
