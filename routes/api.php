@@ -47,18 +47,20 @@ Route::post('/login', [AuthController::class, "login" ]);
 
 //ADMIN
 Route::group(['middleware'=>['auth:sanctum']], function(){
-    //admin logout
+
+    Route::post('/adminLogout', [AuthController::class, "logout" ]); 
 });
 
 // ADMIN API ROUTE/+ADMIN OLDALHOZ 
 Route::post('/adminReg', [AdminController::class, "adminRegister" ]); 
 Route::post('/adminLog', [AdminController::class, "adminLogin" ]); 
 
+
+
 Route::get('/user', [AuthController::class, "getUsers" ]); 
 Route::get('/users/{id}', [AuthController::class, "showUsers" ]); 
 Route::get('/sum', [AuthController::class, "countUsers" ]); 
 Route::get('/age', [AuthController::class, "userAvgAge" ]); 
-// Route::get('/gender', [AuthController::class, "getGenders" ]); 
 Route::get('/womens', [AuthController::class, "getWomens" ]); 
 Route::get('/mens', [AuthController::class, "getMens" ]); 
 Route::get('/else', [AuthController::class, "getElse" ]); 
