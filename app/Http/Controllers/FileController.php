@@ -39,25 +39,7 @@ class FileController extends BaseController
         {
             $id = Auth::user()->getId();
         }
-        // $image = $request->file("image")->store('public/img');
-
-        // $input = File::create([
-        //     'description'=> $request->description,
-        //     'image'=> $image,
-        //     "user_id"=> $id
-        // ]);
-
-    //     $image = $request->file('image');
-    //     $imageName = $image->getClientOriginalName();
-    //     $image = public_path('images/' . $imageName);
-
-    //      $input = File::create([
-    //         // 'description'=> $request->description,
-    //         'image'=> $image,
-    //         "user_id"=> $id
-    //     ]);
-
-    //    return $input;
+      
     $input = $request->all();
     $validator = Validator::make($input, [
       "description"=>"required",

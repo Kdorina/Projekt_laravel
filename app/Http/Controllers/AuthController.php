@@ -51,15 +51,8 @@ class AuthController extends BaseController
         $input["password"] = bcrypt($input["password"]);
         $user = User::create($input);
         $success ["name"] = $user->name;
-        // print_r("Sikeres regisztráció");
-        return $this->sendResponse($success, "Sikeres regisztráció.");
 
-        $token = $user->createToken('sajatToken')->plainTextToken;
-        $response = [
-            'user' => $user,
-            'token' => $token
-        ];
-        return response($response, 201);
+        return $this->sendResponse($success, "Sikeres regisztráció.");
     }
 
     public function logout(Request $request){

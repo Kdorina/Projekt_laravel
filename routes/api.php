@@ -87,7 +87,7 @@ Route::get('/countNote', [NoteController::class, 'countNotes']);
 Route::group(['middleware'=>['auth:sanctum']], function(){
 
 Route::get('/image', [FileController::class, 'index']);
-// Route::get('/images/{id}', [FileController::class, 'show']);
+Route::get('/images/{id}', [FileController::class, 'show']);
 Route::post('/images', [FileController::class, 'store']);
 Route::delete('/images/{id}', [FileController::class, 'destroy']);
 Route::get('/countfile', [FileController::class, 'countFile']);
