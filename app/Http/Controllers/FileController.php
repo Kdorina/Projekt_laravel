@@ -46,15 +46,10 @@ class FileController extends BaseController
         // "image"=>"required"
         ]);
 
-        // if($validator->fails()){
-        // return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
-        // }
-
         if(!$request->hasFile('imgpath') && !$request->file('imgpath')->isValid()){
             return response()->json('{"error":" please add image"}');
         }
             $name = $request->file("imgpath")->getClientOriginalName();
-            // Storage::disk('local')->put($name, file_get_contents($request->file('imgpath')));
             $path = $request->file('imgpath')->storeAs('public/images', $name);
 
         $input = File::create([
@@ -65,6 +60,7 @@ class FileController extends BaseController
 
         return $this->sendResponse(new FileResource($input),'sikeres felvétel.');
     }
+    
     public function destroy($id){
         
         $file=File::find($id);
