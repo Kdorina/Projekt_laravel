@@ -19,7 +19,7 @@ class File extends JsonResource
         return [
             "id"=> $this->id,
             "description"=> $this->description,
-            "image"=> $this->image,
+            "imgpath"=> $this->imgpath,
             'user_id' => $this->user_id
         ];
     }

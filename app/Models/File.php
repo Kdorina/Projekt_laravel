@@ -15,7 +15,7 @@ class File extends Model
     use HasFactory;
     protected $fillable =[
         'description',
-        'image',
+        'imgpath',
         'user_id',
     ];
     public $timestamps = false;

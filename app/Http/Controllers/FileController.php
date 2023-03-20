@@ -40,27 +40,31 @@ class FileController extends BaseController
             $id = Auth::user()->getId();
         }
       
-    $input = $request->all();
-    $validator = Validator::make($input, [
-      "description"=>"required",
-      "image"=>"required"
-    ]);
+        $input = $request->all();
+        $validator = Validator::make($input, [
+        "description"=>"required",
+        // "image"=>"required"
+        ]);
 
-    if($validator->fails()){
-      return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
-    }
-    $image = $request->file('image');
-    $imageName = $image->getClientOriginalName();
-    $image = public_path('images/' . $imageName);
-    $in = File::create([
-        "description"=>$request->description,
-        "image"=> $image,
-        "user_id"=> $id
-    ]);
-    
-    return $in;
-    }
+        // if($validator->fails()){
+        // return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
+        // }
 
+        if(!$request->hasFile('imgpath') && !$request->file('imgpath')->isValid()){
+            return response()->json('{"error":" please add image"}');
+        }
+            $name = $request->file("imgpath")->getClientOriginalName();
+            // Storage::disk('local')->put($name, file_get_contents($request->file('imgpath')));
+            $path = $request->file('imgpath')->storeAs('public/images', $name);
+
+        $input = File::create([
+            "description"=>$request->description,
+            "imgpath"=>$path,
+            "user_id"=>$id
+        ]);
+
+        return $this->sendResponse(new FileResource($input),'sikeres felvétel.');
+    }
     public function destroy($id){
         
         $file=File::find($id);
