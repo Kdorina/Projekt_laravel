@@ -33,7 +33,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/logout', [AuthController::class, "logout" ]); 
 
     Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]);
-    Route::get('/arg', [SubjectController::class, "avarageOneSubject" ]); 
+    Route::get('/mySubject', [SubjectController::class, "mySubject" ]); 
     Route::get('/grade', [SubjectController::class, "avgGradeFromAddSubjects" ]); 
     // Route::get('/count', [SubjectController::class, "countGradesShow" ]); 
 

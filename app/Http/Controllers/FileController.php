@@ -54,8 +54,8 @@ class FileController extends BaseController
     $image = public_path('images/' . $imageName);
     $in = File::create([
         "description"=>$request->description,
-      "image"=> $image,
-      "user_id"=> $id
+        "image"=> $image,
+        "user_id"=> $id
     ]);
     
     return $in;

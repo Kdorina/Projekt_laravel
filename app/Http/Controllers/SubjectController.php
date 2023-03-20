@@ -22,7 +22,6 @@ class SubjectController extends BaseController
           return $this->sendResponse( SubjectResource::collection($subject), "Sikeres");
         }
     
-    
         public function store(Request $request){
     
           if (Auth::check())
@@ -86,8 +85,6 @@ class SubjectController extends BaseController
             $subject = Subject::find($id);
             $subject->delete();
             return $this->sendResponse(new SubjectResource($subject) , "Tantárgy törölve");
-
-    
         
         }
 
@@ -105,7 +102,7 @@ class SubjectController extends BaseController
         }
 
         //eddigi felvett tantárgyai a felhasználónak
-        public function avarageOneSubject(Request $request){
+        public function mySubject(Request $request){
           if(Auth::check()){
             $user_id = Auth::user()->id; 
             $groupSub = DB::table('subjects')->where(["user_id"=> $user_id])->select('subject')->groupBy("subject")->get();
