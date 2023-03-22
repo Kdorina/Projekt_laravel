@@ -50,7 +50,7 @@ class FileController extends BaseController
             return response()->json('{"error":" please add image"}');
         }
             $name = $request->file("imgpath")->getClientOriginalName();
-            $path = $request->file('imgpath')->storeAs('public/images', $name);
+            $path = $request->file('imgpath')->storeAs('images', $name);
 
         $input = File::create([
             "description"=>$request->description,
