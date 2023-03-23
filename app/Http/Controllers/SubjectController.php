@@ -21,9 +21,9 @@ class SubjectController extends BaseController
           return $subject;
           return $this->sendResponse( SubjectResource::collection($subject), "Sikeres");
         }
-    
+
         public function store(Request $request){
-    
+
           if (Auth::check())
             {
                 $id = Auth::user()->getId();
@@ -38,54 +38,54 @@ class SubjectController extends BaseController
           if($validator->fails()){
             return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
           }
-         
+
           $sub = Subject::create([
             "subject"=> $request->subject,
             "grade"=> $request->grade,
             "user_id"=> $id
           ]);
-          
+
           return $this->sendResponse( new SubjectResource($sub), "Sikeres feltöltés");
         }
 
 
         public function show( $id){
             $subject = Subject::find($id);
-    
+
             if( is_null($subject)){
                 return $this->sendError("Tantárgy nem létezik");
             }
             return $this->sendResponse( new SubjectResource ($subject), "Tantárgy betöltve" );
 
         }
-    
+
         public function update(Request $request, $id){
              $input = $request->all();
             $validator = Validator::make($input, [
-    
+
               "subject" => "required",
               "grade" => "required",
-            
+
             ]);
-    
+
             if($validator->fails()){
                 return $this->sendError($validator, "Hiba! Szerkeztés sikertelen");
             }
-    
+
             $subject = Subject::find( $id );
             $subject->update( $input);
-    
+
             // return $subject;
             return $this->sendResponse( new SubjectResource ($subject), "Tantárgy frissítve" );
 
         }
-    
+
         public function destroy($id){
-    
+
             $subject = Subject::find($id);
             $subject->delete();
             return $this->sendResponse(new SubjectResource($subject) , "Tantárgy törölve");
-        
+
         }
 
         //eddigi felvett tantárgyak átlaga
@@ -104,7 +104,7 @@ class SubjectController extends BaseController
         //eddigi felvett tantárgyai a felhasználónak
         public function mySubject(Request $request){
           if(Auth::check()){
-            $user_id = Auth::user()->id; 
+            $user_id = Auth::user()->id;
             $groupSub = DB::table('subjects')->where(["user_id"=> $user_id])->select('subject')->groupBy("subject")->get();
           }
           return $groupSub;
@@ -113,8 +113,8 @@ class SubjectController extends BaseController
 
         public function avgGradeFromAddSubjects(){
           if(Auth::check()){
-            $user_id = Auth::user()->id; 
-            // $avg = DB::select('SELECT subject,sum(grade)/count(subject), user_id 
+            $user_id = Auth::user()->id;
+            // $avg = DB::select('SELECT subject,sum(grade)/count(subject), user_id
             // FROM subjects GROUP BY user_id, subject ORDER BY sum(grade), count(subject) ');
 
             $avg = DB::table('subjects')->where(["user_id"=> $user_id])->
@@ -124,10 +124,10 @@ class SubjectController extends BaseController
           return $avg;
         }
 
-    
+
         // public function countGradesShow(){
         //   if(Auth::check()){
-        //     $user_id = Auth::user()->id; 
+        //     $user_id = Auth::user()->id;
         //     $avg = DB::table('subjects')->where(["user_id"=> $user_id])->
         //     select('subject',DB::raw('count(subject)as darab'))->
         //     groupBy('subject')->get();
@@ -135,12 +135,12 @@ class SubjectController extends BaseController
         //   return $avg;
         // }
 
-    
+
 
         /////ADMIN OLDALHOZ
 
 
-        //felvett tantárgyak személyenként összesítve 
+        //felvett tantárgyak személyenként összesítve
         public function usersSubjectsShow(){
           $subject = Subject::get();
           $s = DB::select('SELECT count(subject), user_id FROM `subjects` GROUP BY subject, user_id ORDER BY user_id ' );
