@@ -39,21 +39,25 @@ class FileController extends BaseController
         {
             $id = Auth::user()->getId();
         }
-      
+
         $input = $request->all();
         $validator = Validator::make($input, [
-        "description"=>"required",
-        // "image"=>"required"
+        // "description"=>"required",
+        "imgpath"=>"required"
         ]);
+
+
 
         if(!$request->hasFile('imgpath') && !$request->file('imgpath')->isValid()){
             return response()->json('{"error":" please add image"}');
         }
+
             $name = $request->file("imgpath")->getClientOriginalName();
             $path = $request->file('imgpath')->storeAs('images', $name);
+            $input = File::create(["imgpath"=>$path, "user_id"=>$id]);
 
         $input = File::create([
-            "description"=>$request->description,
+            // "description"=>$request->description,
             "imgpath"=>$path,
             "user_id"=>$id
         ]);
@@ -72,7 +76,7 @@ class FileController extends BaseController
     public function countFile(){
         if(Auth::check()){
             $user_id = Auth::user()->id;
-            $count = DB::table('files')->where(['user_id'=>$user_id])->select('image')->count();
+            $count = DB::table('files')->where(['user_id'=>$user_id])->select('imgpath')->count();
           
           }
 
