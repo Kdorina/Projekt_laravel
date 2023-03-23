@@ -82,15 +82,9 @@ class FileController extends BaseController
     public function countFile(){
         if(Auth::check()){
             $user_id = Auth::user()->id;
-<<<<<<< HEAD
             $count = DB::table('files')->where(['user_id'=>$user_id])->select('imgpath')->count();
-          
-=======
-            $count = DB::table('files')->where(['user_id'=>$user_id])->select('image')->count();
-
->>>>>>> 990686e87fba53cf689bc55b920c5f3eba4981bc
-          }
-
           return $count;
     }
+}
+
 }
