@@ -21,7 +21,7 @@ class FileController extends BaseController
           $file =  DB::table("files")->where(['user_id'=>$user_id])->get();
         }
         return $file;
-        return $this->sendResponse( NoteResource::collection($file), "Sikeres elérés" );
+        // return $this->sendResponse( FileResource::collection($file), "Sikeres elérés" );
     }
 
     public function show($id){
@@ -40,11 +40,21 @@ class FileController extends BaseController
             $id = Auth::user()->getId();
         }
 
+<<<<<<< HEAD
         // $input = $request->all();
         // $validator = Validator::make($input, [
         // // "description"=>"required",
         // "imgpath"=>"required"
         // ]);
+
+
+=======
+        $input = $request->all();
+        $validator = Validator::make($input, [
+        // "description"=>"required",
+        "imgpath"=>"required"
+        ]);
+>>>>>>> 990686e87fba53cf689bc55b920c5f3eba4981bc
 
 
 
@@ -64,9 +74,9 @@ class FileController extends BaseController
 
         return $this->sendResponse(new FileResource($input),'sikeres felvétel.');
     }
-    
+
     public function destroy($id){
-        
+
         $file=File::find($id);
         $file->delete();
         return $this->sendResponse(new FileResource($file), "Sikeresen törölve");
@@ -76,8 +86,13 @@ class FileController extends BaseController
     public function countFile(){
         if(Auth::check()){
             $user_id = Auth::user()->id;
+<<<<<<< HEAD
             $count = DB::table('files')->where(['user_id'=>$user_id])->select('imgpath')->count();
           
+=======
+            $count = DB::table('files')->where(['user_id'=>$user_id])->select('image')->count();
+
+>>>>>>> 990686e87fba53cf689bc55b920c5f3eba4981bc
           }
 
           return $count;
