@@ -40,11 +40,11 @@ class FileController extends BaseController
             $id = Auth::user()->getId();
         }
 
-        $input = $request->all();
-        $validator = Validator::make($input, [
-        // "description"=>"required",
-        "imgpath"=>"required"
-        ]);
+        // $input = $request->all();
+        // $validator = Validator::make($input, [
+        // // "description"=>"required",
+        // "imgpath"=>"required"
+        // ]);
 
 
 
