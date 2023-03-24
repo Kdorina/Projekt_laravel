@@ -54,8 +54,8 @@ class FileController extends BaseController
         }try{
 
             $name = $request->file("imgpath")->getClientOriginalName();
-            $path = $request->file('imgpath')->storeAs('images', $name);
-            $input = File::create(['imgpath'=>$path, 'user_id'=>$id]);
+            $path = $request->file('imgpath')->storeAs('public', $name);
+            $input = File::create(['imgpath'=>$name, 'user_id'=>$id]);
             
             return response()->json($input);
         }
