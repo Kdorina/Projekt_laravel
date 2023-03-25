@@ -24,10 +24,10 @@ class User extends Authenticatable
     public function notes(){
         return $this->hasMany(Note::class);
     }
-    public function getId()
-{
-  return $this->id;
-}
+
+    public function getId(){
+        return $this->id;
+    }
     /**
      * The attributes that are mass assignable.
      *

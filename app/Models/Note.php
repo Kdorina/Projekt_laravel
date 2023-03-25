@@ -16,4 +16,6 @@ class Note extends Model
         "note",
         'user_id',
     ];
+
+    public $timestamps = false;
 }
