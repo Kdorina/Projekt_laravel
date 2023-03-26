@@ -4138,3 +4138,423 @@ Stack trace:
 [stacktrace]
 #0 {main}
 "} 
+[2023-03-25 12:45:40] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-25 12:47:24] local.ERROR: SQLSTATE[HY000] [1049] Unknown database 'projekt' (SQL: insert into `admins` (`name`, `email`, `password`) values (admin, admin@gmail.com, $2y$10$IF9B/LQ52mTrXfSbaYJpPO9y4eFawbPSlrdV7zCIxxEGra5N3Qhy2)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'projekt' (SQL: insert into `admins` (`name`, `email`, `password`) values (admin, admin@gmail.com, $2y$10$IF9B/LQ52mTrXfSbaYJpPO9y4eFawbPSlrdV7zCIxxEGra5N3Qhy2)) at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:760)
+[stacktrace]
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('insert into `ad...', Array, Object(Closure))
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(534): Illuminate\\Database\\Connection->run('insert into `ad...', Array, Object(Closure))
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(498): Illuminate\\Database\\Connection->statement('insert into `ad...', Array)
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\Processor.php(32): Illuminate\\Database\\Connection->insert('insert into `ad...', Array)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3266): Illuminate\\Database\\Query\\Processors\\Processor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into `ad...', Array, 'id')
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1861): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1322): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#7 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1287): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#8 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1128): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#9 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(978): Illuminate\\Database\\Eloquent\\Model->save()
+#10 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(306): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}(Object(App\\Models\\Admin))
+#11 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(977): tap(Object(App\\Models\\Admin), Object(Closure))
+#12 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create(Array)
+#13 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2321): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'create', Array)
+#14 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2333): Illuminate\\Database\\Eloquent\\Model->__call('create', Array)
+#15 D:\\Suli\\PROJEKT\\Projekt_laravel\\app\\Http\\Controllers\\AdminController.php(46): Illuminate\\Database\\Eloquent\\Model::__callStatic('create', Array)
+#16 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\AdminController->adminRegister(Object(Illuminate\\Http\\Request))
+#17 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('adminRegister', Array)
+#18 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\AdminController), 'adminRegister')
+#19 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#20 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
+#21 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(92): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#26 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(54): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter(Object(Illuminate\\Http\\Request), Object(Closure), 'api', Object(Closure))
+#27 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#28 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php(32): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#32 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(797): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#35 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#36 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#37 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#38 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#39 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#40 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#56 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#57 D:\\Suli\\PROJEKT\\Projekt_laravel\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#58 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\Suli\\\\PROJEKT...')
+#59 {main}
+
+[previous exception] [object] (PDOException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'projekt' at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:70)
+[stacktrace]
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(70): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(45): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1171): call_user_func(Object(Closure))
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(539): Illuminate\\Database\\Connection->getPdo()
+#7 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(753): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('insert into `ad...', Array)
+#8 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(720): Illuminate\\Database\\Connection->runQueryCallback('insert into `ad...', Array, Object(Closure))
+#9 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(534): Illuminate\\Database\\Connection->run('insert into `ad...', Array, Object(Closure))
+#10 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(498): Illuminate\\Database\\Connection->statement('insert into `ad...', Array)
+#11 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\Processor.php(32): Illuminate\\Database\\Connection->insert('insert into `ad...', Array)
+#12 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3266): Illuminate\\Database\\Query\\Processors\\Processor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into `ad...', Array, 'id')
+#13 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1861): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#14 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1322): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#15 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1287): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#16 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1128): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#17 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(978): Illuminate\\Database\\Eloquent\\Model->save()
+#18 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(306): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}(Object(App\\Models\\Admin))
+#19 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(977): tap(Object(App\\Models\\Admin), Object(Closure))
+#20 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create(Array)
+#21 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2321): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'create', Array)
+#22 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2333): Illuminate\\Database\\Eloquent\\Model->__call('create', Array)
+#23 D:\\Suli\\PROJEKT\\Projekt_laravel\\app\\Http\\Controllers\\AdminController.php(46): Illuminate\\Database\\Eloquent\\Model::__callStatic('create', Array)
+#24 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\AdminController->adminRegister(Object(Illuminate\\Http\\Request))
+#25 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('adminRegister', Array)
+#26 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\AdminController), 'adminRegister')
+#27 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#28 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(798): Illuminate\\Routing\\Route->run()
+#29 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(92): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#34 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(54): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter(Object(Illuminate\\Http\\Request), Object(Closure), 'api', Object(Closure))
+#35 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#36 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}(Object(Illuminate\\Http\\Request))
+#38 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php(32): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#40 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(797): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#43 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(776): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#44 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(740): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#45 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(729): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#46 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(190): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#47 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#48 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#56 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#57 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#58 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#59 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#60 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#61 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#62 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#63 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(165): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#64 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(134): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#65 D:\\Suli\\PROJEKT\\Projekt_laravel\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#66 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\Suli\\\\PROJEKT...')
+#67 {main}
+"} 
+[2023-03-25 12:55:40] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-25 13:05:40] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-25 13:07:10] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-25 13:09:28] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-25 13:16:02] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-25 13:26:01] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-25 18:30:59] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-25 18:40:56] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-26 11:42:58] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
+[2023-03-26 12:44:39] local.ERROR: Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\Compilers\Compiler.php:66
+Stack trace:
+#0 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php(96): Illuminate\View\Compilers\Compiler->__construct(Object(Illuminate\Filesystem\Filesystem), false, '', true, 'php')
+#1 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(871): Illuminate\View\ViewServiceProvider->Illuminate\View\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(756): Illuminate\Container\Container->build(Object(Closure))
+#3 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(860): Illuminate\Container\Container->resolve('blade.compiler', Array, true)
+#4 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(692): Illuminate\Foundation\Application->resolve('blade.compiler', Array)
+#5 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(845): Illuminate\Container\Container->make('blade.compiler', Array)
+#6 D:\Suli\PROJEKT\Projekt_laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\View...')
+#8 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught InvalidArgumentException: Please provide a valid cache path. in D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66
+Stack trace:
+#0 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php(96): Illuminate\\View\\Compilers\\Compiler->__construct(Object(Illuminate\\Filesystem\\Filesystem), false, '', true, 'php')
+#1 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(871): Illuminate\\View\\ViewServiceProvider->Illuminate\\View\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build(Object(Closure))
+#3 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(860): Illuminate\\Container\\Container->resolve('blade.compiler', Array, true)
+#4 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('blade.compiler', Array)
+#5 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(845): Illuminate\\Container\\Container->make('blade.compiler', Array)
+#6 D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('blade.compiler', Array)
+#7 Command line code(1): app('Illuminate\\\\View...')
+#8 {main}
+  thrown at D:\\Suli\\PROJEKT\\Projekt_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Compilers\\Compiler.php:66)
+[stacktrace]
+#0 {main}
+"} 
