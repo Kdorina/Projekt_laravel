@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            // $table->string("description");
+            $table->string("description");
             $table->string("imgpath");
             $table->foreignId('user_id');
             $table->timestamps();

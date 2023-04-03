@@ -4558,3 +4558,26 @@ Stack trace:
 [stacktrace]
 #0 {main}
 "} 
+[2023-04-03 12:08:12] production.ERROR: file_get_contents(/Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/.env): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): file_get_contents(/Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/.env): Failed to open stream: No such file or directory at /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php:111)
+[stacktrace]
+#0 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'file_get_conten...', '/Users/dorinako...', 111)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'file_get_conten...', '/Users/dorinako...', 111)
+#2 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(111): file_get_contents('/Users/dorinako...')
+#3 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(93): Illuminate\\Foundation\\Console\\KeyGenerateCommand->writeNewEnvironmentFileWith('base64:UcppCThC...')
+#4 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(58): Illuminate\\Foundation\\Console\\KeyGenerateCommand->setKeyInEnvironmentFile('base64:UcppCThC...')
+#5 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Foundation\\Console\\KeyGenerateCommand->handle()
+#6 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#7 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#8 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#9 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#10 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(182): Illuminate\\Container\\Container->call(Array)
+#11 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Command/Command.php(312): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(151): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#13 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(1020): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(312): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\KeyGenerateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(168): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 {main}
+"} 

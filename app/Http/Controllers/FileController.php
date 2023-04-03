@@ -43,7 +43,7 @@ class FileController extends BaseController
 
         $input = $request->all();
         $validator = Validator::make($input, [
-        // "description"=>"required",
+        "description"=>"required",
         "imgpath"=>"required"
         ]);
 
@@ -55,8 +55,8 @@ class FileController extends BaseController
 
             $name = $request->file("imgpath")->getClientOriginalName();
             $path = $request->file('imgpath')->storeAs('public', $name);
-            $input = File::create(['imgpath'=>$name, 'user_id'=>$id]);
-            
+            $input = File::create(['imgpath'=>$name, "description"=>$request->description, 'user_id'=>$id]);
+
             return response()->json($input);
         }
         catch(\Exception $e){
