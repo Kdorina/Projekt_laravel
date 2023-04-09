@@ -51,17 +51,18 @@ class FileController extends BaseController
 
         if(!$request->hasFile('imgpath') && !$request->file('imgpath')->isValid()){
             return response()->json('{"error":" please add image"}');
-        }try{
-
+        }
             $name = $request->file("imgpath")->getClientOriginalName();
             $path = $request->file('imgpath')->storeAs('public', $name);
-            $input = File::create(['imgpath'=>$name, "description"=>$request->description, 'user_id'=>$id]);
 
-            return response()->json($input);
-        }
-        catch(\Exception $e){
-            return response()->json($e);
-        }
+        $input= File::create([
+            "imgpath"=>$name,
+            "description"=>$request->description,
+            "user_id"=>$id
+        ]);
+
+        return $this->sendResponse(new FileResource($input) , 'sikeres felvétel');
+
     }
 
     public function destroy($id){

@@ -102,7 +102,7 @@ class SubjectController extends BaseController
         }
 
         //eddigi felvett tantárgyai a felhasználónak
-        public function mySubject(Request $request){
+        public function mySubject(){
           if(Auth::check()){
             $user_id = Auth::user()->id;
             $groupSub = DB::table('subjects')->where(["user_id"=> $user_id])->select('subject')->groupBy("subject")->get();
@@ -125,25 +125,13 @@ class SubjectController extends BaseController
         }
 
 
-        // public function countGradesShow(){
-        //   if(Auth::check()){
-        //     $user_id = Auth::user()->id;
-        //     $avg = DB::table('subjects')->where(["user_id"=> $user_id])->
-        //     select('subject',DB::raw('count(subject)as darab'))->
-        //     groupBy('subject')->get();
-        //   }
-        //   return $avg;
-        // }
-
-
-
         /////ADMIN OLDALHOZ
 
 
         //felvett tantárgyak személyenként összesítve
         public function usersSubjectsShow(){
           $subject = Subject::get();
-          $s = DB::select('SELECT count(subject), user_id FROM `subjects` GROUP BY subject, user_id ORDER BY user_id ' );
+        /*   $s = DB::select('SELECT count(subject), user_id FROM `subjects` GROUP BY subject, user_id ORDER BY user_id ' ); */
           $count = DB::table('subjects')->select('subject', 'user_id')->groupBy('subject', 'user_id')->orderBy('user_id')->get();
           // return $s;
           return $count;
