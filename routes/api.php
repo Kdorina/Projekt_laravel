@@ -23,50 +23,50 @@ use App\Http\Controllers\NoteController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-//SUBJECTS    
+//SUBJECTS
 Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('/subject', [SubjectController::class, "index" ]); //INDEX
 
-    Route::delete('/subjects/{id}', [SubjectController::class, "destroy" ]); 
-    Route::post('/subjects', [SubjectController::class, "store" ]); 
-    Route::put('/subjects/{id}', [SubjectController::class, "update" ]); 
-    Route::post('/logout', [AuthController::class, "logout" ]); 
+    Route::delete('/subjects/{id}', [SubjectController::class, "destroy" ]);
+    Route::post('/subjects', [SubjectController::class, "store" ]);
+    Route::put('/subjects/{id}', [SubjectController::class, "update" ]);
+    Route::post('/logout', [AuthController::class, "logout" ]);
 
     Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]);
-    Route::get('/mySubject', [SubjectController::class, "mySubject" ]); 
-    Route::get('/grade', [SubjectController::class, "avgGradeFromAddSubjects" ]); 
-    // Route::get('/count', [SubjectController::class, "countGradesShow" ]); 
+    Route::get('/mySubject', [SubjectController::class, "mySubject" ]);
+    Route::get('/grade', [SubjectController::class, "avgGradeFromAddSubjects" ]);
+    // Route::get('/count', [SubjectController::class, "countGradesShow" ]);
 
 });
 
-Route::get('/subjects/{id}', [SubjectController::class, "show" ]); 
+Route::get('/subjects/{id}', [SubjectController::class, "show" ]);
 
-Route::post('/register', [AuthController::class, "register" ]); 
-Route::post('/login', [AuthController::class, "login" ]); 
+Route::post('/register', [AuthController::class, "register" ]);
+Route::post('/login', [AuthController::class, "login" ]);
 
 
 //ADMIN
 Route::group(['middleware'=>['auth:sanctum']], function(){
 
-    Route::post('/adminLogout', [AuthController::class, "logout" ]); 
+    Route::post('/adminLogout', [AuthController::class, "logout" ]);
 });
 
-// ADMIN API ROUTE/+ADMIN OLDALHOZ 
-Route::post('/adminReg', [AdminController::class, "adminRegister" ]); 
-Route::post('/adminLog', [AdminController::class, "adminLogin" ]); 
+// ADMIN API ROUTE/+ADMIN OLDALHOZ
+Route::post('/adminReg', [AdminController::class, "adminRegister" ]);
+Route::post('/adminLog', [AdminController::class, "adminLogin" ]);
 
 
 
-Route::get('/user', [AuthController::class, "getUsers" ]); 
-Route::get('/users/{id}', [AuthController::class, "showUsers" ]); 
-Route::get('/sum', [AuthController::class, "countUsers" ]); 
-Route::get('/age', [AuthController::class, "userAvgAge" ]); 
-Route::get('/womens', [AuthController::class, "getWomens" ]); 
-Route::get('/mens', [AuthController::class, "getMens" ]); 
-Route::get('/else', [AuthController::class, "getElse" ]); 
-Route::get('/allBuilding', [AuthController::class, "allBuilding" ]); 
+Route::get('/user', [AuthController::class, "getUsers" ]);
+Route::get('/users/{id}', [AuthController::class, "showUsers" ]);
+Route::get('/sum', [AuthController::class, "countUsers" ]);
+Route::get('/age', [AuthController::class, "userAvgAge" ]);
+Route::get('/womens', [AuthController::class, "getWomens" ]);
+Route::get('/mens', [AuthController::class, "getMens" ]);
+Route::get('/else', [AuthController::class, "getElse" ]);
+Route::get('/allBuilding', [AuthController::class, "allBuilding" ]);
 
-Route::get('/usersSubjects', [SubjectController::class, "usersSubjectsShow" ]); 
+Route::get('/usersSubjects', [SubjectController::class, "usersSubjectsShow" ]);
 
 
 
@@ -89,7 +89,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
 Route::get('/image', [FileController::class, 'index']);
 Route::get('/images/{id}', [FileController::class, 'show']);
 Route::post('/images', [FileController::class, 'store']);
-Route::delete('/images/{id}', [FileController::class, 'destroy']);
+Route::delete('/deleteImages/{id}', [FileController::class, 'destroy']);
 Route::get('/countfile', [FileController::class, 'countFile']);
 
 });

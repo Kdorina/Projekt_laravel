@@ -53,7 +53,7 @@ class FileController extends BaseController
             return response()->json('{"error":" please add image"}');
         }
             $name = $request->file("imgpath")->getClientOriginalName();
-            $path = $request->file('imgpath')->storeAs('public', $name);
+            $path = $request->file('imgpath')->storeAs('public/', $name);
 
         $input= File::create([
             "imgpath"=>$name,
@@ -67,16 +67,23 @@ class FileController extends BaseController
 
     public function destroy($id){
 
-        $file=File::find($id);
-        $file->delete();
-        return $this->sendResponse(new FileResource($file), "Sikeresen törölve");
+        $file = File::find($id);
+        if(Storage::exists('public/'. $file->imgpath)){
+            Storage::delete('public/'. $file->imgpath);
+            $file->delete();
+            return $this->sendResponse(new FileResource($file), "Sikeresen törölve");
+        }
+        else{
+            $file->delete();
+            return $this->sendError(new FileResource($file), "Nem létezik ilyen kép a storage mappában");
+        }
 
     }
 
     public function countFile(){
         if(Auth::check()){
             $user_id = Auth::user()->id;
-            $count = DB::table('files')->where(['user_id'=>$user_id])->select('imgpath')->count();
+            $count = DB::table('files')->where(['user_id'=>$user_id])->select('id')->count();
           return $count;
     }
 }

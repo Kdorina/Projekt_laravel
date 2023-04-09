@@ -29,7 +29,7 @@ class NoteController extends BaseController
             {
                 $id = Auth::user()->getId();
             }
-            
+
         $input = $request->all();
         $validator = Validator::make($input , [
             "note"=> "required"
@@ -43,7 +43,7 @@ class NoteController extends BaseController
             "note"=> $request->note,
             "user_id"=> $id
         ]);
-       
+
         return $this->sendResponse( new NoteResource($input), "Sikeres feltöltés");
 
     }
@@ -57,8 +57,8 @@ class NoteController extends BaseController
     public function countNotes(){
         if(Auth::check()){
             $user_id = Auth::user()->id;
-            $count = DB::table('notes')->where(['user_id'=>$user_id])->select('note')->count();
-          
+            $count = DB::table('notes')->where(['user_id'=>$user_id])->select('id')->count();
+
           }
 
           return $count;
