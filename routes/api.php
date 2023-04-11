@@ -27,9 +27,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('/subject', [SubjectController::class, "index" ]); //INDEX
 
-    Route::delete('/subjects/{id}', [SubjectController::class, "destroy" ]);
+    Route::delete('/deleteSubject/{id}', [SubjectController::class, "destroy" ]);
     Route::post('/subjects', [SubjectController::class, "store" ]);
-    Route::put('/subjects/{id}', [SubjectController::class, "update" ]);
+    Route::put('/updateSubject/{id}', [SubjectController::class, "update" ]);
     Route::post('/logout', [AuthController::class, "logout" ]);
 
     Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]);
@@ -39,7 +39,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
 
 });
 
-Route::get('/subjects/{id}', [SubjectController::class, "show" ]);
+Route::get('/showSubject/{id}', [SubjectController::class, "show" ]);
 
 Route::post('/register', [AuthController::class, "register" ]);
 Route::post('/login', [AuthController::class, "login" ]);
@@ -78,7 +78,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
 Route::get('/note', [NoteController::class, 'index']);
 // Route::get('/notes/{id}', [NoteController::class, 'show']);
 Route::post('/notes', [NoteController::class, 'store']);
-Route::delete('/notes/{id}', [NoteController::class, 'destroy']);
+Route::delete('/deleteNotes/{id}', [NoteController::class, 'destroy']);
 Route::get('/countNote', [NoteController::class, 'countNotes']);
 
 });
@@ -87,7 +87,7 @@ Route::get('/countNote', [NoteController::class, 'countNotes']);
 Route::group(['middleware'=>['auth:sanctum']], function(){
 
 Route::get('/image', [FileController::class, 'index']);
-Route::get('/images/{id}', [FileController::class, 'show']);
+Route::get('/showImage/{id}', [FileController::class, 'show']);
 Route::post('/images', [FileController::class, 'store']);
 Route::put('/updateImage/{id}', [FileController::class, 'update']);
 Route::delete('/deleteImages/{id}', [FileController::class, 'destroy']);

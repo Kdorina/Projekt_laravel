@@ -6795,3 +6795,67 @@ Stack trace:
 #46 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('/Users/dorinako...')
 #47 {main}
 "} 
+[2023-04-11 09:16:40] local.ERROR: The "--TERM" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--TERM\" option does not exist. at /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php:217)
+[stacktrace]
+#0 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('TERM', 'VALUE')
+#1 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--TERM=VALUE')
+#2 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--TERM=VALUE', true)
+#3 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/Input.php(52): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Command/Command.php(271): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(151): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(1020): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(312): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(168): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 {main}
+"} 
+[2023-04-11 09:18:08] local.ERROR: The "--compact" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--compact\" option does not exist. at /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php:217)
+[stacktrace]
+#0 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(146): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('compact', NULL)
+#1 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--compact')
+#2 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--compact', true)
+#3 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/Input.php(52): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Command/Command.php(271): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(151): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(1020): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(312): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(168): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 {main}
+"} 
+[2023-04-11 09:18:21] local.ERROR: The "--compact" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--compact\" option does not exist. at /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php:217)
+[stacktrace]
+#0 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(146): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('compact', NULL)
+#1 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--compact')
+#2 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--compact', true)
+#3 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/Input.php(52): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Command/Command.php(271): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(151): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(1020): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(312): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(168): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 {main}
+"} 
+[2023-04-11 09:19:12] local.ERROR: The "-c" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"-c\" option does not exist. at /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php:119)
+[stacktrace]
+#0 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(101): Symfony\\Component\\Console\\Input\\ArgvInput->parseShortOptionSet('compact')
+#1 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(81): Symfony\\Component\\Console\\Input\\ArgvInput->parseShortOption('-compact')
+#2 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('-compact', true)
+#3 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Input/Input.php(52): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Command/Command.php(271): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(151): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(1020): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(312): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/symfony/console/Application.php(168): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 /Users/dorinakovacs/Desktop/Projekt/Projekt_laravel/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 {main}
+"} 
