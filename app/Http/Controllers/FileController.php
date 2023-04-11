@@ -47,8 +47,6 @@ class FileController extends BaseController
         "imgpath"=>"required"
         ]);
 
-
-
         if(!$request->hasFile('imgpath') && !$request->file('imgpath')->isValid()){
             return response()->json('{"error":" please add image"}');
         }
@@ -64,6 +62,7 @@ class FileController extends BaseController
         return $this->sendResponse(new FileResource($input) , 'sikeres felvétel');
 
     }
+
 
     public function destroy($id){
 
