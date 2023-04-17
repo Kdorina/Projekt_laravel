@@ -25,7 +25,7 @@ class FileController extends BaseController
         // return $this->sendResponse( FileResource::collection($file), "Sikeres elérés" );
     }
 
-    public function show($id){
+/*     public function show($id){
         $file = File::find($id);
 
         if(is_null($file)){
@@ -33,7 +33,7 @@ class FileController extends BaseController
         }else{
             return $this->sendResponse(new FileResource( $file), "A fájl létezik");
         }
-    }
+    } */
 
     public function store(Request $request){
         if (Auth::check())
@@ -62,6 +62,33 @@ class FileController extends BaseController
         return $this->sendResponse(new FileResource($input) , 'sikeres felvétel');
 
     }
+
+  /*   public function update(Request $request, $id){
+
+        $input = $request->all();
+        $validator = Validator::make($input, [
+        "description"=>"required",
+        "imgpath"=>"required"
+        ]);
+
+        if(!$request->hasFile('imgpath') ){
+            if($request->imgpath){
+                Storage::delete('public/'. $file->imgpath);
+            }
+        }else{
+            $name = $request->file("imgpath")->getClientOriginalName();
+            $path = $request->file('imgpath')->storeAs('public/', $name);
+        }
+
+        $input = File::find($id);
+        $input->update([
+            "imgpath"=>$name,
+            "description"=>$request->description,
+        ]);
+
+        return $this->sendResponse(new FileResource($input) , 'sikeres felvétel');
+
+    } */
 
 
     public function destroy($id){

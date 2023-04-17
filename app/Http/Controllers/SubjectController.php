@@ -49,6 +49,8 @@ class SubjectController extends BaseController
         }
 
 
+
+/*
         public function show( $id){
             $subject = Subject::find($id);
 
@@ -57,7 +59,7 @@ class SubjectController extends BaseController
             }
             return $this->sendResponse( new SubjectResource ($subject), "Tantárgy betöltve" );
 
-        }
+        } */
 
         public function update(Request $request, $id){
              $input = $request->all();
