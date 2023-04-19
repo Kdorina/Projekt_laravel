@@ -36,7 +36,7 @@ class NoteController extends BaseController
         ]);
 
         if($validator->fails()){
-            return $this->sendError($validator, "Sikertelen feltöltés");
+            return $this->sendError($validator, "Hiba!, Sikertelen felvétel");
         }
 
         $input = Note::create([
@@ -44,7 +44,7 @@ class NoteController extends BaseController
             "user_id"=> $id
         ]);
 
-        return $this->sendResponse( new NoteResource($input), "Sikeres feltöltés");
+        return $this->sendResponse( new NoteResource($input), "Sikeres felvétel");
 
     }
 
@@ -60,7 +60,6 @@ class NoteController extends BaseController
             $count = DB::table('notes')->where(['user_id'=>$user_id])->select('id')->count();
 
           }
-
           return $count;
     }
 

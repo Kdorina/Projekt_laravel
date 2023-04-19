@@ -19,7 +19,7 @@ class SubjectController extends BaseController
             $subject =  DB::table("subjects")->where(['user_id'=>$user_id])->get();
           }
           return $subject;
-          return $this->sendResponse( SubjectResource::collection($subject), "Sikeres");
+          return $this->sendResponse( SubjectResource::collection($subject), "Sikeres elérés");
         }
 
         public function store(Request $request){
@@ -36,7 +36,7 @@ class SubjectController extends BaseController
           ]);
 
           if($validator->fails()){
-            return $this->sendError($validator, "Hiba!, Sikertelen feltöltés");
+            return $this->sendError($validator, "Hiba!, Sikertelen felvétel");
           }
 
           $sub = Subject::create([
@@ -45,7 +45,7 @@ class SubjectController extends BaseController
             "user_id"=> $id
           ]);
 
-          return $this->sendResponse( new SubjectResource($sub), "Sikeres feltöltés");
+          return $this->sendResponse( new SubjectResource($sub), "Sikeres felvétel");
         }
 
 

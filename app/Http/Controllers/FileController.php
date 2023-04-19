@@ -48,7 +48,7 @@ class FileController extends BaseController
         ]);
 
         if(!$request->hasFile('imgpath') && !$request->file('imgpath')->isValid()){
-            return response()->json('{"error":" please add image"}');
+            return response()->json('{"error":" kérlek válaszd ki a képet"}');
         }
             $name = $request->file("imgpath")->getClientOriginalName();
             $path = $request->file('imgpath')->storeAs('public/', $name);
