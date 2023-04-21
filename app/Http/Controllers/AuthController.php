@@ -23,7 +23,7 @@ class AuthController extends BaseController
         // print_r("Sikeres bejelentkezés");
         return $this->sendResponse($success, "Sikeres bejelentkezés.");
     }
-    else 
+    else
     {
       return $this->sendError("Unauthorizd.".["error" => "Hibás adatok"], 401);
     }
@@ -32,7 +32,7 @@ class AuthController extends BaseController
     public function register(Request $request)
     {
         $input = $request->all();
-        $validator = Validator::make($input, 
+        $validator = Validator::make($input,
         [
             "buildingName" => "required",
             "name" => "required",
@@ -43,11 +43,11 @@ class AuthController extends BaseController
             "confirm_password" => "required|same:password"
         ]);
 
-        if($validator->fails()) 
+        if($validator->fails())
         {
             return $this->sendError("Error validation", $validator->errors() );
         }
-        
+
         $input["password"] = bcrypt($input["password"]);
         $user = User::create($input);
         $success ["name"] = $user->name;
@@ -79,17 +79,17 @@ class AuthController extends BaseController
         $sum = DB::table('users')->select('id')->count('id');
         return $sum;
     }
-    
+/*
     public function showUsers($id){
         $user = User::find($id);
-    
-        if( is_null($user)){
-            return $this->sendError("Post nem létezik");
-        }
-        return $this->sendResponse( new UserResource ($user), "Post betöltve" );
-    }
 
-    public function userAvgAge(Request $request){
+        if( is_null($user)){
+            return $this->sendError("User nem létezik");
+        }
+        return $this->sendResponse( new UserResource ($user), " User betöltve" );
+    } */
+
+    public function userAvgAge(){
         $date = DB::select('SELECT ROUND(AVG(YEAR(CURDATE())-Year(date_of_birth))) as "kor" FROM users');
         return $date;
 
@@ -98,24 +98,24 @@ class AuthController extends BaseController
     public function getWomens(){
         $user = DB::table('users')->where("gender", "nő")->get();
         $women = $user->count('id');
-        
+
         return $women;
     }
     public function getMens(){
         $user = DB::table('users')->where("gender", "férfi")->get();
         $man = $user->count('id');
-        
+
         return $man;
     }
     public function getElse(){
         $user = DB::table('users')->where("gender", "egyéb")->get();
         $else = $user->count('id');
-        
+
         return $else;
     }
 
     public function allBuilding(){
-        
+
         $shools = DB::table('users')->select("buildingName")->groupBy("buildingName")->get();
         return $shools;
     }
