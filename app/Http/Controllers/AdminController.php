@@ -17,7 +17,6 @@ class AdminController extends BaseController
         $authUser = Auth::guard('admin')->user();
         $success["token"] = $authUser->createToken("MyAuthApp", ['admin'])->plainTextToken;
         $success["name"] = $authUser->name;
-        // print_r("Sikeres bejelentkezés");
         return $this->sendResponse($success, "Sikeres bejelentkezés.");
     }
     else
@@ -45,7 +44,6 @@ class AdminController extends BaseController
         $input["password"] = bcrypt($input["password"]);
         $user = Admin::create($input);
         $success ["name"] = $user->name;
-        // print_r("Sikeres regisztráció");
         return $this->sendResponse($success, "Sikeres regisztráció.");
     }
 

@@ -20,7 +20,6 @@ class AuthController extends BaseController
         $authUser = Auth::user();
         $success["token"] = $authUser->createToken("MyAuthApp")->plainTextToken;
         $success["name"] = $authUser->name;
-        // print_r("Sikeres bejelentkezés");
         return $this->sendResponse($success, "Sikeres bejelentkezés.");
     }
     else
@@ -62,10 +61,6 @@ class AuthController extends BaseController
 
 
 
-
-
-///ADMIN oldalhoz lekérdezés
-
     public function getUsers(){
         return User::all();
         // $user = DB::table("users")->select("id", "name", "email")->get();
@@ -79,15 +74,6 @@ class AuthController extends BaseController
         $sum = DB::table('users')->select('id')->count('id');
         return $sum;
     }
-/*
-    public function showUsers($id){
-        $user = User::find($id);
-
-        if( is_null($user)){
-            return $this->sendError("User nem létezik");
-        }
-        return $this->sendResponse( new UserResource ($user), " User betöltve" );
-    } */
 
     public function userAvgAge(){
         $date = DB::select('SELECT ROUND(AVG(YEAR(CURDATE())-Year(date_of_birth))) as "kor" FROM users');

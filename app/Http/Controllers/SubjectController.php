@@ -49,18 +49,6 @@ class SubjectController extends BaseController
         }
 
 
-
-/*
-        public function show( $id){
-            $subject = Subject::find($id);
-
-            if( is_null($subject)){
-                return $this->sendError("Tantárgy nem létezik");
-            }
-            return $this->sendResponse( new SubjectResource ($subject), "Tantárgy betöltve" );
-
-        } */
-
         public function update(Request $request, $id){
              $input = $request->all();
             $validator = Validator::make($input, [
@@ -77,7 +65,6 @@ class SubjectController extends BaseController
             $subject = Subject::find( $id );
             $subject->update( $input);
 
-            // return $subject;
             return $this->sendResponse( new SubjectResource ($subject), "Tantárgy frissítve" );
 
         }
@@ -90,8 +77,6 @@ class SubjectController extends BaseController
 
         }
 
-        //eddigi felvett tantárgyak átlaga
-
         public function avarageAllSubject(){
           if(Auth::check()){
             $user_id = Auth::user()->id;
@@ -103,7 +88,6 @@ class SubjectController extends BaseController
           return $arg;
         }
 
-        //eddigi felvett tantárgyai a felhasználónak
         public function mySubject(){
           if(Auth::check()){
             $user_id = Auth::user()->id;
@@ -126,11 +110,6 @@ class SubjectController extends BaseController
           return $avg;
         }
 
-
-        /////ADMIN OLDALHOZ
-
-
-        //felvett tantárgyak személyenként összesítve
         public function usersSubjectsShow(){
           $subject = Subject::get();
         /*   $s = DB::select('SELECT count(subject), user_id FROM `subjects` GROUP BY subject, user_id ORDER BY user_id ' ); */

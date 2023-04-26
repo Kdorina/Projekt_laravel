@@ -23,9 +23,9 @@ use App\Http\Controllers\NoteController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-//SUBJECTS
+//USER API ROUTE / +SUBJECTS
 Route::group(['middleware'=>['auth:sanctum']], function(){
-    Route::get('/subject', [SubjectController::class, "index" ]); //INDEX
+    Route::get('/subject', [SubjectController::class, "index" ]);
 
     Route::delete('/deleteSubject/{id}', [SubjectController::class, "destroy" ]);
     Route::post('/subjects', [SubjectController::class, "store" ]);
@@ -35,11 +35,9 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('/argAll', [SubjectController::class, "avarageAllSubject" ]);
     Route::get('/mySubject', [SubjectController::class, "mySubject" ]);
     Route::get('/grade', [SubjectController::class, "avgGradeFromAddSubjects" ]);
-    // Route::get('/count', [SubjectController::class, "countGradesShow" ]);
+
 
 });
-
-/* Route::get('/showSubject/{id}', [SubjectController::class, "show" ]); */
 
 Route::post('/register', [AuthController::class, "register" ]);
 Route::post('/login', [AuthController::class, "login" ]);
@@ -76,7 +74,6 @@ Route::get('/usersSubjects', [SubjectController::class, "usersSubjectsShow" ]);
 Route::group(['middleware'=>['auth:sanctum']], function(){
 
 Route::get('/note', [NoteController::class, 'index']);
-// Route::get('/notes/{id}', [NoteController::class, 'show']);
 Route::post('/notes', [NoteController::class, 'store']);
 Route::delete('/deleteNotes/{id}', [NoteController::class, 'destroy']);
 Route::get('/countNote', [NoteController::class, 'countNotes']);
@@ -87,7 +84,6 @@ Route::get('/countNote', [NoteController::class, 'countNotes']);
 Route::group(['middleware'=>['auth:sanctum']], function(){
 
 Route::get('/image', [FileController::class, 'index']);
-/* Route::get('/showImage/{id}', [FileController::class, 'show']); */
 Route::post('/images', [FileController::class, 'store']);
 /* Route::put('/updateImage/{id}', [FileController::class, 'update']); */
 Route::delete('/deleteImages/{id}', [FileController::class, 'destroy']);
