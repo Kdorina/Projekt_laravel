@@ -25,15 +25,6 @@ class FileController extends BaseController
         // return $this->sendResponse( FileResource::collection($file), "Sikeres elérés" );
     }
 
-/*     public function show($id){
-        $file = File::find($id);
-
-        if(is_null($file)){
-            return $this->sendError("A fájl nem létezik");
-        }else{
-            return $this->sendResponse(new FileResource( $file), "A fájl létezik");
-        }
-    } */
 
     public function store(Request $request){
         if (Auth::check())
