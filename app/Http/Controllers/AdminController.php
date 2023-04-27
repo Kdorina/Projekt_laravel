@@ -15,7 +15,7 @@ class AdminController extends BaseController
         if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){;
 
         $authUser = Auth::guard('admin')->user();
-        $success["token"] = $authUser->createToken("MyAuthApp", ['admin'])->plainTextToken;
+        $success["token"] = $authUser->createToken("MyAdminApp", ['admin'])->plainTextToken;
         $success["name"] = $authUser->name;
         return $this->sendResponse($success, "Sikeres bejelentkezés.");
     }
